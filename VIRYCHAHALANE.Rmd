@@ -131,6 +131,8 @@ ggplot(data=donnerRp)  + geom_point ()
 
 ```
 
+Comme vous le voyer les géométries ne peut pas etre représenter sans un argument .
+
 Les géométriques on peut mettre en argument ce qu' on appelle un mappage  (que je vous parlerai Plus tard)qui est défini dans la fonction aes() c'est fonction permette de sélectionner les éléments à utiliser pour la représentation selon les caractéristique d'un type de graphique  comme pour une graphique geom_point():
 
 ```{r}
@@ -155,14 +157,26 @@ il existe beaucoup de  géométrique  je vais te présenter quelqu' un
 
 ## geom_boxplot : 
 
+```{r}
+ggplot(donnerRp) + geom_boxplot(aes(x=Heures.moyennes.chaque.semaine , y=Pays ))
+```
+
 \
 \
 
 ## geom_violin
 
+```{r}
+
+```
+
 \
 
 ## geom_bar 
+
+```{r}
+ggplot(donnerRp) + geom_bar(aes(x=Heures.moyennes.chaque.semaine ))
+```
 
 \
 
