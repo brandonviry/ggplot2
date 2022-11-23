@@ -74,14 +74,13 @@ Maintenant que les données sont récupérées je vais vous expliquer La nature 
 ```{r}
 
 #matrice 
-donner = matrix(data = c(1,"lapin","noir",2,'chien',0,3,"chien","rouge") , nrow = 3, ncol = 3)
+donner = matrix(data = c(1,"lapin","noir",2,'chien',0,3,"chien","rouge") , nrow = 3, ncol = 3 , byrow = TRUE)
 donner
 
 #dataframe
 as.data.frame(donner)
 
-#tibble 
-as.tibble
+
 ```
 
 pour pouvoir faire la représentation Vous devez d'abord importer la librairie que vous avez installé ggplot2 comme suit:
