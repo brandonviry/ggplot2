@@ -233,7 +233,7 @@ ggplot(EUR_USD)+geom_density(aes(x=Variation))
 ## geom_line 
 
 ```{r}
-
+ggplot(EUR_USD)+geom_line(aes(x=Variation,y=1:length(rownames(EUR_USD))))
 ```
 
 \
@@ -248,11 +248,21 @@ ggplot(note)+geom_point(aes(y=COUR,x=Note))
 
 ## geom_hex
 
+<https://ggplot2.tidyverse.org/reference/geom_hex.html>
+
+<https://plotly.com/ggplot2/geom_hex/>
+
+<https://search.r-project.org/CRAN/refmans/ggplot2/html/geom_hex.html>
+
+<https://tidyverse.github.io/ggplot2-docs/reference/geom_hex.html>
+
+<https://thinkr.fr/pdf/ggplot2-french-cheatsheet.pdf>
+
 ```{r}
-ggplot(note)+geom_hex(aes(y=COUR,x=Note))
+ggplot(note)+geom_hex(aes(y=COUR,x=Note),bins=0.1)
 ```
 
-\
+<https://sebastienbuczinski.netlify.app/post/r-2-ggplot/>\
 
 ## geom_bin2d
 
