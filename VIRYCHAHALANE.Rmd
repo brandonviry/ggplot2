@@ -177,36 +177,80 @@ ggplot(note) + geom_violin(aes(x=ECTS , y=Note ))
 ## geom_bar 
 
 ```{r}
-ggplot(note) + geom_bar(aes(x=COUR , y=Heures.moyennes.chaque.semaine ))
+
+ggplot(note) + geom_bar(aes(x=Note  ))
 ```
 
 \
 
 ## geom_col
 
+```{r}
+ggplot(note) + geom_col(aes(x=Note ,y=COUR ))
+```
+
 \
 
 ## geom_text
+
+```{r}
+ggplot(data=note)  + geom_text (aes(x=Note ,y=COUR, label=ECTS )) 
+```
 
 \
 
 ## geom_label
 
+```{r}
+ggplot(data=note)  + geom_label (aes(x=Note ,y=COUR, label=ECTS )) 
+```
+
 \
 
 ## geom_density
 
-\
+<https://ggplot2.tidyverse.org/reference/geom_density.html>\
+<https://plotly.com/ggplot2/geom_density/>
+
+<https://www.datanovia.com/en/lessons/ggplot-density-plot/>
+
+<https://fr.investing.com/currencies/eur-usd-historical-data>
+
+```{r}
+EUR_USD=read.csv(file = "EURUSD.csv",header = TRUE)
+EUR_USD 
+
+```
+
+```{r}
+colnames(EUR_USD)
+```
+
+```{r}
+ggplot(EUR_USD)+geom_density(aes(x=Variation))
+```
 
 ## geom_line 
+
+```{r}
+
+```
 
 \
 
 ## geom_point
 
+```{r}
+ggplot(note)+geom_point(aes(y=COUR,x=Note))
+```
+
 \
 
 ## geom_hex
+
+```{r}
+ggplot(note)+geom_hex(aes(y=COUR,x=Note))
+```
 
 \
 
@@ -255,6 +299,8 @@ trim : TRUE coupe la queue du voilon et FALSE l'inverse
 <https://www.datanovia.com/en/fr/lessons/ggplot-violin-plot/>
 
 ## geom_bar 
+
+<https://ggplot2.tidyverse.org/reference/geom_bar.html>
 
 -   x  ou y = la variable qualitative
 
