@@ -59,7 +59,17 @@ Pour récupérer les données la plupart du temps vue le nombre de données , le
 
 **1- simple fichier texte**
 
+```{r}
+data <- read.table("data.txt", header = FALSE)
+data 
+```
+
 **2- un fichier CSV**
+
+```{r}
+ base = read.csv(file = "tic-tac-toe.csv",header = FALSE)
+ base
+```
 
 **3 - package**
 
@@ -68,8 +78,6 @@ Pour récupérer les données la plupart du temps vue le nombre de données , le
 Il existe plein d'autres façons aussi de récupérer des données comme l'importation  de **fichier excel ,sas ,spss  et plein d'autres** formats ou encore en faisant **une connexion à des bases de données** .
 
 Maintenant que les données sont récupérées je vais vous expliquer La nature qui contient ces données.C'est donner sont d'un type spécial a R **c'est un** **dataframe** où les **données** de chaque colonnes sont **typées**.
-
-\
 
 ```{r}
 
@@ -113,7 +121,7 @@ ggplot(data=donnerRp)  + geom_point ()
 
 ```
 
-Les géométrique on peut mettre en argument ce qu' on appelle un mappage  (que je vous parlerai Plus tard)qui est défini dans la fonction aes() c'est fonction permette de sélectionner les éléments à utiliser pour la représentation selon les caractéristique d'un type de graphique  comme pour une graphique geom_point():
+Les géométriques on peut mettre en argument ce qu' on appelle un mappage  (que je vous parlerai Plus tard)qui est défini dans la fonction aes() c'est fonction permette de sélectionner les éléments à utiliser pour la représentation selon les caractéristique d'un type de graphique  comme pour une graphique geom_point():
 
 ```{r}
 ggplot(data=donnerRp)  + geom_point (aes(x=data1 , y=data2 )) 
