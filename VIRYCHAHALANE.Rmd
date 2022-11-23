@@ -46,6 +46,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Introduction
 
 # **Prérequis**
+
 Pour pouvoir utiliser ce guide **il faut maîtriser le langage de programmation R** il faut avoir installé sur sa machine **r studio** installer La librairie  **ggplot2** et savoir **le type de représentation** qu'on veut faire sur vous donner .Si vous avez jamais installer la librairie est jamais utilisé R studio je vais vous Mettre en annexe un tuto expliquant comment installer un studio et je veux vous expliquer comment installer la librairie ggplot2.
 
 Alors voici comment il faut installer la librairie ggplot2 : 
@@ -53,7 +54,6 @@ Alors voici comment il faut installer la librairie ggplot2 : 
 # Syntax de base
 
 ## Recuperation de données
-
 
 Pour récupérer les données la plupart du temps vue le nombre de données , les données sont enregistrés   **dans des fichiers**  et le plus souvent ce fichier est dans le format csv  donc je vais vous montrer comment récupérer les données  dans  plusieur type de fichier :
 
@@ -89,9 +89,7 @@ ou
 ggplot(donnerRp) 
 ```
 
-
 ## Les Géometries
-
 
 Les géométries c'est le type de représentation graphique qu' on veut utiliser  il existe beaucoup  de géométrie  chaque géométrie a c'est caractéristique . 
 
@@ -170,9 +168,7 @@ il existe beaucoup de  géométrique  je vais te présenter quelqu' un
 
 Il  en existe d'autres mais voici les principales utiliser
 
-
 ## Les Mapages
-
 
 Un mappages permet de relier un élément graphique à une variable d'un tableau Pour chaque géométrie il existe à ma page différent que je vais vous détailler suivant :
 
@@ -277,7 +273,6 @@ Il en existe peut-être d'autres mais ce sont les plus importants 
 
 ## Scales
 
-
 Permet de modifier la façon de relier des attribut graphique et les mappage  pour la représentation .On peut  le mettre à une représentation graphique en additionnent  une des fonction de scale a la géométrie :
 
 ```{r}
@@ -342,7 +337,6 @@ Mais il existe un autre type de scal qui permet de modifier la couleur ses fonct
 -   scale_color_viridis_c : ajouter un titre a la legende coleure 
 
 -    scale_fill :  modifier les palettes de couleur  loque on on utilise le attribut graphqUE fill
-
 
 ## Theme
 
