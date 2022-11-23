@@ -158,16 +158,18 @@ il existe beaucoup de  géométrique  je vais te présenter quelqu' un
 ## geom_boxplot : 
 
 ```{r}
-ggplot(donnerRp) + geom_boxplot(aes(x=Heures.moyennes.chaque.semaine , y=Pays ))
+note =read.csv(file = "note.csv",header = TRUE)
+note 
 ```
 
-\
-\
+```{r}
+ggplot(note) + geom_boxplot(aes(x=ECTS , y=Note ))
+```
 
 ## geom_violin
 
 ```{r}
-
+ggplot(note) + geom_violin(aes(x=ECTS , y=Note ))
 ```
 
 \
@@ -175,7 +177,7 @@ ggplot(donnerRp) + geom_boxplot(aes(x=Heures.moyennes.chaque.semaine , y=Pays ))
 ## geom_bar 
 
 ```{r}
-ggplot(donnerRp) + geom_bar(aes(x=Heures.moyennes.chaque.semaine ))
+ggplot(note) + geom_bar(aes(x=COUR , y=Heures.moyennes.chaque.semaine ))
 ```
 
 \
@@ -221,6 +223,36 @@ Un mappages permet de relier un élément graphique à une variable d'un tableau
 -   x =a variable qualitative  
 
 -   y = variable numérique
+
+-   argument :
+
+    -   with : largeur des box
+
+    -   notch : crée un boxplot avec notch si TRUE
+
+    -   color :couleur
+
+    -   size : taille
+
+    -   linetype : type de bordure
+
+        -   \
+            \
+            <https://www.datanovia.com/en/fr/lessons/ggplot-boxplot/>
+
+## geom_violin
+
+color : Couleur
+
+Size : taille
+
+linetype : type de la ligne
+
+fill: couleur de remplissage
+
+trim : TRUE coupe la queue du voilon et FALSE l'inverse
+
+<https://www.datanovia.com/en/fr/lessons/ggplot-violin-plot/>
 
 ## geom_bar 
 
