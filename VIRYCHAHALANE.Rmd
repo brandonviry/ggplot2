@@ -67,9 +67,22 @@ Pour récupérer les données la plupart du temps vue le nombre de données , le
 
 Il existe plein d'autres façons aussi de récupérer des données comme l'importation  de **fichier excel ,sas ,spss  et plein d'autres** formats ou encore en faisant **une connexion à des bases de données** .
 
-Maintenant que les données sont récupérées je vais vous expliquer La nature qui contient ces données.C'est donner sont d'un type spécial a R **c'est tibble**.Un tibble est à **dataframe** où les **données** de chaque colonnes sont **typées**.
+Maintenant que les données sont récupérées je vais vous expliquer La nature qui contient ces données.C'est donner sont d'un type spécial a R **c'est un** **dataframe** où les **données** de chaque colonnes sont **typées**.
 
 \
+
+```{r}
+
+#matrice 
+donner = matrix(data = c(1,"lapin","noir",2,'chien',0,3,"chien","rouge") , nrow = 3, ncol = 3)
+donner
+
+#dataframe
+as.data.frame(donner)
+
+#tibble 
+as.tibble
+```
 
 pour pouvoir faire la représentation Vous devez d'abord importer la librairie que vous avez installé ggplot2 comme suit:
 
