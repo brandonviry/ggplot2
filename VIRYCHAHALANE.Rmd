@@ -53,7 +53,7 @@ Alors voici comment il faut installer la librairie ggplot2 : 
 
 **Etape 1 : Etape de départ**
 
-[![](installeGGPLOT2/Etape%201%20_%20Etape%20de%20d%C3%A9part.png)](installeGGPLOT2/Etape 1 _ Etape de départ.png)
+[![](installeGGPLOT2/Etape%201%20_%20Etape%20de%20d%C3%A9part.png)](installeGGPLOT2/Etape%201%20_%20Etape%20de%20départ.png)
 
 **Etape 2: Cliquer sur l'onglet "Pakages"**
 
@@ -67,8 +67,7 @@ Alors voici comment il faut installer la librairie ggplot2 : 
 
 ![](installeGGPLOT2/Etape%204%20_%20Parametrage%20.png)
 
-**Etape 5 : Install from "CRAN"**
-![](installeGGPLOT2/Etape%205%20_%20Install%20from%20_CRAN_.png)
+**Etape 5 : Install from "CRAN"** ![](installeGGPLOT2/Etape%205%20_%20Install%20from%20_CRAN_.png)
 
 **Etape 6 : Entrer le nom de la librairie dans "Package" -\> ggplot2**
 
@@ -76,8 +75,7 @@ Alors voici comment il faut installer la librairie ggplot2 : 
 
 **Etape 7 : cocher "install dependencies"**
 
-![](installeGGPLOT2/Etape%207%20_%20cocher%20_install%20dependencies_.png)
-**Etape 8 : Cliquée sur "install"**
+![](installeGGPLOT2/Etape%207%20_%20cocher%20_install%20dependencies_.png) **Etape 8 : Cliquée sur "install"**
 
 ![](installeGGPLOT2/Etape%208%20_%20Cliqu%C3%A9e%20sur%20_install_.png)
 
@@ -89,7 +87,22 @@ Alors voici comment il faut installer la librairie ggplot2 : 
 
 ## Recuperation de données
 
-Pour récupérer les données la plupart du temps vue le nombre de données , les données sont enregistrés   **dans des fichiers**  et le plus souvent ce fichier est dans le format csv  donc je vais vous montrer comment récupérer les données  dans  plusieur type de fichier :
+Pour récupérer les données la plupart du temps vue le nombre de données , les données sont enregistrés   **dans des fichiers**  et le plus souvent ce fichier est dans le format csv  donc je vais vous montrer comment récupérer les données  dans  plusieurs type de fichier . C'est donner sont d'un type spécial a R **c'est un** **dataframe** où les **données** de chaque colonnes sont **typées**. mais pour simplifier je vais dire tableau et ou les nom des collones sont appeller variable . Qui resemble à ca :
+
+```{r}
+
+
+#EXMPLE 
+
+
+donner = data.frame(
+   identifant = c(1,2,3),
+   animal = c("lapin","chien","chien"),
+   couleur = c("Rose","Violer","Magenta")
+)
+
+donner
+```
 
 **1- simple fichier texte**
 
@@ -98,6 +111,23 @@ data <- read.table("data.txt", header = FALSE)
 data 
 ```
 
+```{r}
+data <- read.table("data.txt", header = TRUE)
+data 
+```
+
+data : est la varaible on les données vont etre sauvegader (le tableau)
+
+read.table() :est la fonction qui prend en argument :
+
+1.  le nom du fichier pour l'exemple c'est data.txt sous forme de chaine de chactere c'est adire entre guillmer "data.txt"
+
+2.  Un argument header qui est egale soit a TRUE ou FALSE
+
+    1\. Si vous metter header est egale à TRUE signifit le fichier contient les noms des collonne et des ligne de notre du tableau
+
+    2\. Si vous metter header est egale à FALSE signifit l'inverse
+
 **2- un fichier CSV**
 
 ```{r}
@@ -105,27 +135,19 @@ data
  base
 ```
 
-**3 - package**
+read.csv() :est la fonction qui prend en argument cette fonction est réserver au fichier en format .csv:
 
-\
+1.  le nom du fichier pour l'exemple c'est tic-tac-toe.csv sous forme de chaine de chactere c'est adire entre guillmer "tic-tac-toe.csv"
 
-Il existe plein d'autres façons aussi de récupérer des données comme l'importation  de **fichier excel ,sas ,spss  et plein d'autres** formats ou encore en faisant **une connexion à des bases de données** .
+2.  Un argument header qui est egale soit a TRUE ou FALSE
 
-Maintenant que les données sont récupérées je vais vous expliquer La nature qui contient ces données.C'est donner sont d'un type spécial a R **c'est un** **dataframe** où les **données** de chaque colonnes sont **typées**.
+     1. Si vous metter header est egale à TRUE signifit le fichier contient les noms des collonne et des ligne de notre du tableau
 
-```{r}
+     2. Si vous metter header est egale à FALSE signifit l'inverse
 
-#matrice 
-donner = matrix(data = c(1,"lapin","noir",2,'chien',0,3,"chien","rouge") , nrow = 3, ncol = 3 , byrow = TRUE)
-donner
+Il existe plein d'autres façons aussi de récupérer des données comme l'importation  de **fichier excel ,sas ,spss  et plein d'autres** formats ou encore en faisant **une connexion à des bases de données ou package** .
 
-#dataframe
-as.data.frame(donner)
-
-
-```
-
-pour pouvoir faire la représentation Vous devez d'abord importer la librairie que vous avez installé ggplot2 comme suit:
+Maintenant que les données sont récupérées pour pouvoir faire la représentation vous devez d'abord importer la librairie que vous avez installé ggplot2 comme suit:
 
 ```{r}
 library(ggplot2)
@@ -139,9 +161,9 @@ pouvoir travailler sur c'est donner vous devais prendre c'est donner est le plac
 donnerRp = read.csv(file = "donnerRp.csv",header = TRUE)
 donnerRp
 
-colnames(donnerRp)
-rownames(donnerRp)
 ```
+
+source des donnees : [( Source )](https://www.offremedia.com/le-temps-consacre-aux-jeux-video-est-estime-7-heures-par-semaine-dans-le-monde-et-en-france-en)
 
 ```{r}
 ggplot(data= donnerRp)
@@ -153,21 +175,23 @@ ou
 ggplot(donnerRp) 
 ```
 
+comme vous le voyer il juste l'emplacement que vas prendre le graphique qui s'affiche c'est toute a fait normal car on ne lui a pas définit de représentation que on veut afficher .C'est le prochain point de se guide .
+
 ## Les Géometries
 
 Les géométries c'est le type de représentation graphique qu' on veut utiliser  il existe beaucoup  de géométrie  chaque géométrie a c'est caractéristique . 
 
-Pour choisir le type de représentation il suffit d' ajouter un type de graphique   il son sous forme de fonction comme ceci :
+Pour sélectionner la représentation il suffit d' ajouter un type de graphique   qui est sous forme de fonction comme ceci :
 
 ```{r}
-#ggplot(data=donnerRp)  + geom_point () 
-#initialisation donner     addition  geom 
+ggplot(data=donnerRp)   +  geom_point () 
+#initialisation donner addition  geom 
 
 ```
 
-Comme vous le voyer les géométries ne peut pas etre représenter sans un argument .
+Comme vous le voyer les géométries ne peut pas être représenter sans un argument .
 
-Les géométriques on peut mettre en argument ce qu' on appelle un mappage  (que je vous parlerai Plus tard)qui est défini dans la fonction aes() c'est fonction permette de sélectionner les éléments à utiliser pour la représentation selon les caractéristique d'un type de graphique  comme pour une graphique geom_point():
+Les géométriques peuvent avoir en argument ce qu' on appelle un mappage  (je vous en parle ra dans le prochaint poitn en détaille )qui est défini dans la fonction aes() c'est fonction permette de sélectionner les éléments à utiliser pour la représentation selon les caractéristique d'un type de graphique  comme pour une graphique geom_point():
 
 ```{r}
 ggplot(data=donnerRp)  + geom_point (aes(x=Heures.moyennes.chaque.semaine , y=Pays )) 
@@ -185,9 +209,9 @@ et 
 
 data2 est la donner pris en compte en y 
 
-Chaque géométrie  possède d'autres arguments qu'on appelle attribut graphique e  (Que je vous parlerai Plus tard)
+Chaque géométrie  possède d'autres arguments qu'ont appelle attribut graphique e  (Que je vous parlerai Plus tard)
 
-il existe beaucoup de  géométrique  je vais te présenter quelqu' un
+il existe beaucoup de  géométrique  je vais te présenter quelque' un
 
 ## geom_boxplot : 
 
@@ -196,11 +220,19 @@ note =read.csv(file = "note.csv",header = TRUE)
 note 
 ```
 
+mappage :
+
+x et y : sont deux variable quantitative
+
 ```{r}
 ggplot(note) + geom_boxplot(aes(x=ECTS , y=Note ))
 ```
 
 ## geom_violin
+
+x et y : sont deux variable quantitative
+
+RQ : geom_violin et geom_boxplot sont de facon de visualiser tres proches
 
 ```{r}
 ggplot(note) + geom_violin(aes(x=ECTS , y=Note ))
