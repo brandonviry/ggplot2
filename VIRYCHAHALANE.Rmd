@@ -51,6 +51,40 @@ Pour pouvoir utiliser ce guide **il faut maîtriser le langage de programmation 
 
 Alors voici comment il faut installer la librairie ggplot2 : 
 
+Etape 1 : Etape de départ
+
+![](installeGGPLOT2/Etape%201%20_%20Etape%20de%20d%C3%A9part.png)
+
+Etape 2: Cliquer sur l'onglet "Pakages"
+
+![](installeGGPLOT2/Etape%202_%20Cliquer%20sur%20l_onglet%20_Pakages_.png)
+
+Etape 3 : Sous-onglet "Install"
+
+![](installeGGPLOT2/Etape%203%20_%20Sous-onglet%20_Install_.png)
+
+Etape 4 : Parametrage
+
+![](installeGGPLOT2/Etape%204%20_%20Parametrage%20.png)
+
+Etape 5 : Install from "CRAN"
+![](installeGGPLOT2/Etape%205%20_%20Install%20from%20_CRAN_.png)
+
+Etape 6 : Entrer le nom de la librairie dans "Package" -\> ggplot2
+
+![](installeGGPLOT2/Etape%206%20_%20Entrer%20le%20nom%20de%20la%20librairie%20dans%20_Package_%20-_%20ggplot2.png)
+
+Etape 7 : cocher "install dependencies"
+
+![](installeGGPLOT2/Etape%207%20_%20cocher%20_install%20dependencies_.png)
+Etape 8 : Cliquée sur "install"
+
+![](installeGGPLOT2/Etape%208%20_%20Cliqu%C3%A9e%20sur%20_install_.png)
+
+Etape 9 : verifer que le installation est faite voir en bleu sur la photo
+
+![](installeGGPLOT2/Etape%209%20_%20verifer%20que%20le%20installation%20est%20faite%20voir%20en%20bleu%20sur%20la%20photo.png)
+
 # Syntax de base
 
 ## Recuperation de données
