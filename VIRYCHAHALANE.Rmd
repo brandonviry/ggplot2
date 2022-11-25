@@ -463,7 +463,7 @@ RQ : geom_point, geom_hexa ,geom_bin2d fonctionne pareil la seul différence c'e
 
 Il en existe peut-être d'autres mais ce sont les plus importants 
 
-## Attribut de represnetation
+## Attribut de représentation
 
 ## Multigraphe
 
