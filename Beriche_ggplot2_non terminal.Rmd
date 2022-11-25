@@ -1,0 +1,264 @@
+---
+title: "ggplot"
+author: "Chahalane Beriche 40007818"
+date: "2022-11-24"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# **Introduction**
+
+Bienvenue dans ce guide d'utilisation de **GGplot2**, Qu'est-ce que ggplot2 (souvent abrégé sous le nom de ggplot) ?
+
+GGplot2 est une **extension** du tidyverse (collection de packages R open source) sortie en 2007 qui permet de générer des **graphiques** avec une syntaxe cohérente et puissante, c'est un **package** très complet et très célèbre, parmi les utilisateurs de **R**.
+
+GGplot repose sur les principes de la **"grammaire des graphiques"**. L'idée principale est de concevoir un graphique comme une succession de **couches** (layers, en anglais) qui se superposent.
+
+Une des particularités de ggplot2 est qu'elle part du principe que les données relatives à un graphique sont stockées dans un **tableau de données** (data frame, tibble ou autre).
+
+Dans ce guide nous allons vous accompagner et vous introduire à l'utilisation de ce package ,malgrés l'aide fournis il faudra préalablement des **prérequis** afin de facilement comprendre et suivre ce tuto de façon la plus optimal. Ensuite vous verrez les différentes **syntaxe** , nous vous donnerons 2 exemple de cas d'utilisation et pour **conclure** on vous donnera les **ressources** nécessaire pour aller plus loin dans votre **apprentissage**.
+
+Malgrés l'effort et le travail fournit pour vous donnez un guide de qualité on arrivera pas à concurrencer votre meilleur allié qui sera la fonction **" help()"** qui vous sera quasiment indispensable dans votre apprentissage !!!
+
+[**Deux differrente façon d'uttiliser la fonction help()**]{.underline}
+
+```{r}
+#on va tester help sur la package ggplot2
+#1ere methode :
+help("ggplot2")
+
+#2ieme methode:
+?ggplot2
+
+```
+
+```{r}
+install.packages("ggplot2")
+library("ggplot2")
+
+```
+
+Pour les exemples qui vont suivre, nous allons utiliser le jeu de données mpg disponible dans le package ggplot2
+
+```{r}
+data(mpg,package = "ggplot2")#on charge les donnée
+?mpg
+head(mpg)
+str(mpg)
+```
+
+# 3 - Syntaxe GGPLOT2
+
+## Propriétés esthétiques
+
+Les  éléments de **représentation graphique**  sont appelés des **GEOM** qui utilise different propriété passé en paramètre pour représenter des variables , dans un ggplot, le terme \"**esthétique\"** fait référence aux éléments de style utilisés pour visualiser des variables du **data.frame** de travail et non à l\'affichage des **éléments externes** (non-data), tels que les titres, les étiquettes des axes, la **couleur** d\'arrière-plan, etc., discuté ci-dessus. à savoir que les **arguments estetiques** qu'on peut uttiliser dans un ggplot dépendent des geoms(point,lines,bars,etc\...)
+
+[**Voici une liste non exhaustives des propriété qui sont partagé par plusieurs geoms :**]{.underline}
+
+-    **Y :** numerique dont on veut étudier la répartition   ,
+
+-   **X :** variable qualitative contenant les classe qu\'on souhaite comparer
+
+-    **color :** La couleur
+
+-   **shape :** La forme
+
+-    **Linetype :** Type de ligne
+
+-   **linewidth :** Largeur de la ligne
+
+-   **size :** La Taille des symbole
+
+-   **alpha :** La Transparence
+
+-    **fill :** La couleur du remplissage
+
+-   **group :** Tracer des element separement pour chaque groupe
+
+IL existe plusieurs propriétés pour personaliser son graphe mais on ne pourra pas tous les citer ici , voici quelques ressources pour allez plus loin et en savoir plus sur les propriété d'une fonction geom , pour cela consultez son Help **help(geom_NOMGEOM)** ou **?geom_NOMGEOM**
+
+```{r}
+#Par exemple ici en appliquant la fonction help() sur le geom_bar ou bien celui de votre choix vous pourrez avoir l'aide sur rstudio qui vous montre non seulement comment fonctionne ce geom mais aussi les differrent propriété de celui-ci et comment les uttiliser.
+
+help("geom_bar")#aide memoire sur le geom Bar
+?geom_bar#fonctionne exactement comme help
+
+```
+
+On peut aussi se renseigner sur la page web officiel de ggplot [**https://ggplot2.tidyverse.org/reference/#section-geoms**](https://ggplot2.tidyverse.org/reference/#section-geoms)  . Mais pour ma part  je vous conseillerais une autre façon, ma méthode préférée, plus **interactive et fun** pour  découvrir ces arguments disponible via  **ce lien : <https://ggplot2tutor.com/aesthetics/.>**
+
+### Voici un exemple qui illustre comment contrôler les esthétiques d\'un ggplot.
+
+Pour notre exemple ici on va prendre comm donnée source en **abscisse** x le cylindrée du moteur en litre avec "displ"  et en **ordonnée** y le modèle de véhicule concernée "model"
+
+```{r}
+#Voici 2 exemple avec differrent geom
+#dans cette exempleon crée un geom de type point et on lui passe quelque argument tel que la taille des symbole,sa couleur
+help(geom_point)#aide pour le type de geom point
+
+#On va afficher un graphe qui montre le cylindrée du moteur en litres par model
+ggplot(mpg,aes(x=displ,y=model)) + geom_point(alpha=2,shape=18,size=3,color="blue",fill=3)
+
+#pour ce deuxieme exemple j'uttilise le geom de type line qui integre un nouvelle arhument que n'a pas le geome point c'est le type de ligne type_ligne
+help(geom_line)#Pour pouvoir voir l'ensemble des propriete disponible pour ce type de geom
+
+#Meme cas mais en uttilisant un graphe en ligne
+ggplot(mpg,aes(x=displ,y=model)) + geom_line(color="red",linetype=4,linewidth=2)
+
+
+```
+
+## Multigraphe 
+
+L'un des avantages de ggplot c'est qu'on peut combiner plusieurs types graphes ensemble, pouvant etre de type et avoir des sources de données differrent tous simplement avec le symbole +
+
+Voici un exmeple
+
+```{r}
+# je je vais combiner les deux graphe de ligne et de point  precedent
+
+ggplot(mpg, aes(x = displ, y = model, color = drv, linetype = trans)) +
+  geom_point(size = 1.5) +
+  geom_line(alpha = 0.5)
+
+```
+
+# Faceting
+
+Le faceting sert à découper un graphique en une figure à plusieurs panneaux, chaque panneau (facette) correspond à un sous-ensemble de données. ggplot propose deux fonctions pour faire du faceting : facet_grid et facet_wrap.
+
+Comme vue avant on va prendre l'habitude d'uttiliser help quand on neconnait pas une fonction ou autre
+
+```{r}
+help(facet_grid)
+help(facet_wrap)
+```
+
+Ces deux fonctions sont très similaires mais **facet_grid()** réalise une matrice de graphiques alors que **facet_wrap()** réalise une suite de graphiques. Les deux arguments principaux de ces fonctions sont : **rows** et **cols** pour **facet_grid()** et **facets** pour **facet_wrap()**. Le graphique suivant illustre ces deux fonctions et leurs arguments.
+
+```{r}
+# gauche
+ggplot(mpg, aes(displ, model)) + geom_point() +
+  facet_grid(cols = vars(trans), row = vars(drv))
+# droite
+ggplot(mpg, aes(displ, model)) + geom_point() +
+  facet_wrap(facets = vars(trans, drv))
+```
+
+Mais par défaut, chaque facette est fournie avec un label qui montre la valeur du facteur de découpage. Par défaut aussi, les échelles des axes affichées sont les mêmes pour toutes les groupes, facettes. Les arguments labeller et scales peuvent être évoqués pour modifier, contrôler ces deux éléments.
+
+```{r}
+ggplot(mpg, aes(displ, hwy)) + geom_point() +
+  facet_grid(cols = vars(trans), row = vars(drv), labeller = "label_both", scales = "free")
+```
+
+# Themes
+
+Nous voiçi arriver sur une partie assez amusante de ce guide les thèmes , Les thèmes permettent de contrôler et personaliser l\'affichage de tous les éléments du graphique qui ne sont pas reliés aux données : titres, étiquette , lgrilles, fonds, legende et bien plus .
+
+Il existe un certain nombre de thèmes préexistants ici on va uttiliser deux theme sur notre exemple :
+
+**theme_bw :** Met le fond en blanc avec les quadrillage en gris
+
+**theme_minimal**
+
+**Avant tout**
+
+```{r}
+help(theme_bw)
+help("theme_minimal")
+```
+
+par exemple le thème **theme_bw** :
+
+```{r}
+ggplot(data = mpg) +
+  geom_histogram(aes(x = displ)) +
+  theme_bw()
+```
+
+Un autre exemple de theme **theme_minimal** :
+
+```{r}
+ggplot(data = mpg) +
+  geom_histogram(aes(x = cyl),bins=30) +
+  theme_minimal()
+```
+
+Les éléments personnalisables étant nombreux, un bon moyen de se familiariser avec tous les arguments est sans doute l\'addin  RStudio **ggThemeAssist**. Pour l\'utiliser il suffit d\'installer le package du même nom. Pour ne pas trop se disperser, je vais vous donnez un lien menant vers un tuto qui vous apprend de façons simple à uttiliser ggTemeAssist <https://www.dataindeed.io/2018/03/13/dailyr-ggplot2-theme-assistant/>.
+
+Les thème permettent d\'obtenir très facilement des rendu graphique beau mais aussi des graphe pas très beau à voir et moin comprehensible , dans l'exemple ci-dessous  je mélange exprès beaucoup  de thème, ce qui va donner un résultat pas très beau et peu compréhensible , c'est pour cela que je vous ai présenté plus haut deux thème simple pour vous habituez à choisir des options simple et compréhensible plutôt que des option qui peuvent rendre le graphe illisible et moche :
+
+```{r}
+#exemple quand on melange beaucoup d'option sans les maitrisez
+ggplot(mpg,aes(x=displ,y=model)) + geom_line(color="black",linetype=4,linewidth=2) +
+ theme(panel.grid.major = element_line(colour = "green",
+    size = 0.5, linetype = "dotdash"), axis.title = element_text(family = "serif",
+    size = 18, face = "italic", colour = "white"),
+    axis.text = element_text(family = "serif",
+        size = 15, face = "bold"), axis.text.x = element_text(family = "mono"),
+    plot.title = element_text(family = "serif"),
+    legend.text = element_text(family = "serif"),
+    legend.title = element_text(family = "serif"),
+    panel.background = element_rect(fill = "coral"),
+    plot.background = element_rect(fill = "blue"))
+
+
+
+```
+
+On a données 2 exemple de thème et un moyen de modifier les themes ici mais il existe des centaine de thème permettant de donner un beau rendu visuel à vos graphiques , vous pourrez trouver une panopli de thème :
+
+```{r}
+help(theme)# ici vous verrais comment uttiliser la fonction theme et aussi vous verrez les differrent type de theme existant
+```
+
+Il y'a aussi un package complementaire dédié au théme appelé ggthemes
+
+```{r}
+#Pour installerr ce package uttiliser 
+install.packages("ggthemes")
+
+#Pour charger le pachage
+library("ggthemes")
+
+# le plus important pour avoir comment uttiliser ce package
+help("ggthemes")
+
+
+```
+
+# Conclusion
+
+Il temps de se dire au revoir après tant de chemins parcourus ensemble dans ce tutoriel  ,vous voilà maintenant bien équipé avec assez de base  pour vous lancer seul de manière plus approfondie dans  ce vaste monde de visualisation de données avec ggplot2 , mais ne vous inquiétez pas on va vous tenir la main une dernière fois en vous donnant quelques idées et Ressources pour approfondir votre apprentissage un dernier conseil n'hésitez pas à commenter votre code cela pourrait vous être beaucoup utile plus tard et surtout pour la compréhension . Merci d'avoir suivi notre guide et à très bientôt.
+
+### [Voici quelques sujet très intéressant,vous pourriez :]{.underline}
+
+-   **Ecrire vos propre fonction**
+
+-   **Structurer vos donées**
+
+-   **Vous initiez au structure conditionnel et boucles**
+
+-   **programmer avec tidyverse Organiser un projet avec targets**
+
+# Ressources 
+
+[**Les références suivantes peuvent vous être utiles :**]{.underline}
+
+-   g[gplot2 : Graphiques élégants pour l'analyse des données.](https://ggplot2-book.org/)
+
+-   [Visualisation de données avec R.](https://rkabacoff.github.io/datavis/)
+
+-   [ggplot2 : site web du paquetage.](http://ggplot2.tidyverse.org/index.html)
+
+-   [R pour la science des données : Visualisation de données.](http://r4ds.had.co.nz/data-visualisation.html)
+
+-   [Galerie de graphiques.](https://www.r-graph-gallery.com/)
+
+-   [Aide mémoire GGplot2 en Français](https://thinkr.fr/pdf/ggplot2-french-cheatsheet.pdf)
+
+-   [Tutoriel ggplot2](https://ggplot2tutor.com/)
