@@ -141,9 +141,9 @@ read.csv() :est la fonction qui prend en argument cette fonction est réserver a
 
 2.  Un argument header qui est egale soit a TRUE ou FALSE
 
-     1. Si vous metter header est egale à TRUE signifit le fichier contient les noms des collonne et des ligne de notre du tableau
+    1.  Si vous metter header est egale à TRUE signifit le fichier contient les noms des collonne et des ligne de notre du tableau
 
-     2. Si vous metter header est egale à FALSE signifit l'inverse
+    2.  Si vous metter header est egale à FALSE signifit l'inverse
 
 Il existe plein d'autres façons aussi de récupérer des données comme l'importation  de **fichier excel ,sas ,spss  et plein d'autres** formats ou encore en faisant **une connexion à des bases de données ou package** .
 
