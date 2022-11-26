@@ -1,4 +1,4 @@
----
+------------------------------------------------------------------------
 
 ---
 title: "Projet GGPLOT2"
@@ -186,7 +186,7 @@ Les géométries c'est le type de représentation graphique qu' on veut utiliser
 Pour sélectionner la représentation il suffit d' ajouter un type de graphique   qui est sous forme de fonction comme ceci :
 
 ```{r}
-ggplot(data=donnerRp)   +  geom_point () 
+#ggplot(data=donnerRp)   +  geom_point () 
 #initialisation donner addition  geom 
 
 ```
@@ -256,7 +256,7 @@ ggplot(note) + geom_bar(aes(x=Note  ))
 Vous pouvez aussi passer du format vertical horizontal et vice-versa en ajoutant la fonction coord_flip()   à la géométrie :
 
 ```{r}
-geom_bar(.....)+coord_flip()
+ggplot(note) + geom_bar(aes(x=Note  ))+coord_flip()
 
 ```
 
@@ -491,6 +491,60 @@ ggplot(note)+geom_point(aes(y=COUR,x=Note ,color=ECTS)) + scale_color_gradient("
 ## Exemple 1
 
 ## Exemple 2
+
+```{r}
+EUR_USD=read.csv(file = "EURUSD.csv",header = TRUE)
+
+```
+
+```{r}
+EUR_USD 
+```
+
+source des données : [(source)](https://fr.investing.com/currencies/eur-usd-historical-data)
+
+```{r}
+color=read.csv(file = "color.csv",header = TRUE)
+name = color$nom
+color = data.frame(t(color$HEX))
+colnames(color)= name
+color
+
+```
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+ggplot(EUR_USD )+
+  geom_point(aes(y=Variation,x=Date ,size =Variation ,color=Variation)) +  scale_size(range=c(0,20))+
+  
+    geom_hline(yintercept = 5,color=color$`Vert brillant`,size=2,alpha=0.5)+
+  geom_hline(yintercept = -5 ,color=color$`Rouge clair brillant`,size=2 ,alpha=0.5) + 
+  geom_hline(yintercept = 0,size=2,alpha=0.3)+
+  
+  geom_text(aes(y=Variation,x=Date ,label=Variation) ,color=color$`Bleu noir`)+
+  
+  scale_colour_gradient(low = color$`Rouge clair brillant`,high = color$`Vert brillant`)+
+  
+  scale_y_continuous(limits = c(-10,10))+ 
+  
+
+  
+  theme_dark()+
+  
+  theme(axis.text.x = element_text(angle = 90, vjust =1, hjust=1 , color=color$`Blanc crÃ¨me` ,face = "bold")  , plot.background = element_rect(fill =color$`Gris argent`),panel.grid.major = element_line(colour = color$`BlancÂ pur`),axis.title = element_text(family = "Arial" , colour =color$`BlancÂ pur`),
+     axis.text.y = element_text(color =color$`Blanc crÃ¨me` , angle = 45 ,size = 12) , plot.title = element_text(color = color$`Jaune brillant`) ,legend.background = element_rect(fill=color$`Gris argent`)
+     )+ 
+  
+  ggtitle("EUR/USD - Euro Dollar américain") + 
+  ylab("Varation du taux entre dolard et euro en pourcentage ") +
+  xlab("Date des revelevées")
+
+
+
+```
 
 # Aller Plus loin
 
