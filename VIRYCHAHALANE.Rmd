@@ -4,7 +4,9 @@
 title: "Projet GGPLOT2"
 author: "38001470 VIRY Brandon &  40007818 Chahalane Bériche"
 date: '2022-11-21'
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -13,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # GUIDE UTILISATION GGPLOT 2
 
-**SOMMAIRE**
+# **SOMMAIRE**
 
 -   Introduction (1)
 
