@@ -87,9 +87,9 @@ str(mpg)
 
 # **Prérequis**
 
-Pour pouvoir utiliser ce guide **il faut maîtriser le langage de programmation R** il faut avoir installé sur sa machine **r studio** installer la librairie  **ggplot2** et savoir **le type de représentation** qu'on veut faire sur vos donner .Si vous avez jamais installer une librairie , utiliser R et Rstudio je vous met en lien un [tutoirel](https://openclassrooms.com/fr/courses/4525256-initiez-vous-au-langage-r-pour-analyser-vos-donnees/6250851-prenez-en-main-r-et-r-studio) expliquant comment utiliser R et Rstudio et je vous expliquer comment installer la librairie ggplot2.
+Pour pouvoir utiliser ce guide **il faut maîtriser le langage de programmation R** il faut avoir installé sur sa machine **r studio** installer la librairie  **ggplot2** et savoir **le type de représentation** qu'on veut faire sur vos données .Si vous avez jamais installer une librairie , utiliser R et Rstudio je vous met en lien un[ tutoriel](https://openclassrooms.com/fr/courses/4525256-initiez-vous-au-langage-r-pour-analyser-vos-donnees/6250851-prenez-en-main-r-et-r-studio) expliquant comment utiliser R et Rstudio et je vous expliquer comment installer la librairie ggplot2.
 
-Alors, voici comment il faut installer la librairie ggplot2 : 
+Alors, voici comment il faut installer la librairie ggplot2 :
 
 **Etape 1 : Etape de départ**
 
@@ -127,7 +127,7 @@ Alors, voici comment il faut installer la librairie ggplot2 : 
 
 ## Récupération de données
 
-Pour récupérer les données la plupart du temps vue le nombre de données , les données sont enregistrés   **dans des fichiers**  et le plus souvent ce fichier est dans le format csv  donc je vais vous montrer comment récupérer les données  dans  plusieurs type de fichier . C'est données sont d'un type spécial a R **c'est un** **dataframe** où les **données** de chaque colonnes sont **typées**. mais pour simplifier je vais dire tableau et ou les noms des colonnes sont appelé variable . Voici un exemple :
+Pour récupérer les données la plupart du temps vu le nombre de données , les données sont enregistrées   **dans des fichiers**  et le plus souvent ce fichier est dans le format csv  donc je vais vous montrer comment récupérer les données  dans  plusieurs types de fichier . Ces données sont d'un type spécial a R **c'est un** **dataframe** où les **données** de chaque colonnes sont **typées**. mais pour simplifier je vais dire tableau et ou les noms des colonnes sont appelé variable . Voici un exemple :
 
 ```{r}
 
@@ -162,11 +162,13 @@ data
 
 1.  **le nom du fichier** pour l'exemple c'est data.txt sous forme de chaîne de caractère c'est adire entre guillemet "data.txt"
 
-2.  Un argument **header** qui est égale soit a **TRUE ou FALSE**
+2.  Un argument **header** qui est égale soit à **TRUE ou FALSE**
 
-    1\. Si vous mettez header est égale à **TRUE** signifie le fichier **contient les noms des colonne et des ligne de notre du tableau**
+    1.  **\
+        **Si vous mettez header est égale à **TRUE** signifie le fichier **contient les noms des colonne et des ligne de notre du tableau**
 
-    2\. Si vous mettez header est égale à **FALSE** signifie **l'inverse**
+    2.  **\
+        **Si vous mettez header est égale à **FALSE** signifie **l'inverse**
 
 **2- Un fichier CSV**
 
@@ -179,7 +181,7 @@ data
 
 1.  **le nom du fichier** pour l'exemple c'est tic-tac-toe.csv sous forme de chaîne de caractère c'est a dire entre guillemet "tic-tac-toe.csv"
 
-2.  Un argument **header** qui est égale soit a **TRUE ou FALSE :**
+2.  Un argument **header** qui est égale soit à **TRUE ou FALSE :**
 
     1.  Si vous mettez header est égalé à **TRUE** signifie le fichier contient les noms **des colonnes et des ligne** de notre du tableau
 
@@ -203,7 +205,7 @@ donnerRp
 
 ```
 
-source des donnees : [( Source )](https://www.offremedia.com/le-temps-consacre-aux-jeux-video-est-estime-7-heures-par-semaine-dans-le-monde-et-en-france-en)
+source des données : [( Source )](https://www.offremedia.com/le-temps-consacre-aux-jeux-video-est-estime-7-heures-par-semaine-dans-le-monde-et-en-france-en)
 
 ```{r}
 ggplot(data= donnerRp)
@@ -215,9 +217,9 @@ ou
 ggplot(donnerRp) 
 ```
 
-comme vous le voyez il y a juste l'emplacement ou le graphique va s'afficher qui s'affiche c'est toute a fait normal car on ne lui a pas définit de représentation.C'est le prochain point de se guide .
+Comme vous le voyez il y a juste l'emplacement ou le graphique va s'afficher qui s'affiche c'est tout à fait normal car on ne lui a pas défini de représentation.C'est le prochain point de ce guide .
 
-## Les Géometries
+## Les Géométries
 
 **Les géométries c'est le type de représentation graphique** qu' on veut utiliser sur nos données  il existe beaucoup  de géométrie  chaque géométrie a c'est caractéristique . 
 
@@ -231,15 +233,15 @@ ggplot(data=donnerRp)   +  geom_point ()
 
 Comme vous le voyez **les géométries ne peuvent pas être représenter sans un argument** .
 
-**Les géométriques** peuvent avoir en **argument** ce qu' on appelle un **mappage** et **des attribue graphique** (qui est le prochain point a traités ) . Un **mappages** permet de **relier un élément graphique à une variable** d'un tableau.Il existe presque autant de mappage que il y de attribue graphique. Pour chaque géométrie il existe à un mappage différent . Ce **mappage** est défini dans la fonction **aes**() c'est fonction permette de **sélectionner les éléments à utiliser pour la représentation selon les caractéristiques** d'un type de graphique .Certain des **mappages sont obligatoire** pour faire une représentation et des **autres optionnelle** .
+**Les géométriques** peuvent avoir en **argument** ce qu' on appelle un **mappage** et **des attribue graphique** (qui est le prochain point à traiter ) . Un **mappages** permet de **relier un élément graphique à une variable** d'un tableau.Il existe presque autant de mappage que il y de attribue graphique. Pour chaque géométrie il existe un mappage différent . Ce **mappage** est défini dans la fonction **aes**() c'est fonction permette de **sélectionner les éléments à utiliser pour la représentation selon les caractéristiques** d'un type de graphique .Certains des **mappages sont obligatoire** pour faire une représentation et des **autres optionnelle** .
 
-Exemple pour une graphique geom_point() avec les éllements de mappage obligatoire :
+Exemple pour une graphique geom_point() avec les éléments de mappage obligatoire :
 
 ```{r}
 ggplot(data=donnerRp)  + geom_point (aes(x=Heures.moyennes.chaque.semaine , y=Pays )) 
 ```
 
--   **aes() :** Cette fonction permet de crée le mappage sur les données (Les mappages esthétiques)
+-   **aes() :** Cette fonction permet de créer le mappage sur les données (Les mappages esthétiques)
 
 -   **x** est un élément du mappage , c'est l'élément du graphique en x
 
@@ -249,7 +251,7 @@ ggplot(data=donnerRp)  + geom_point (aes(x=Heures.moyennes.chaque.semaine , y=Pa
 
 -   **data2** est la donner pris en compte en y 
 
-il existe beaucoup de  géométrique  on va vous présenter quelque' un avec les mappage obligatoire
+il existe beaucoup de  géométrique  on va vous présenter quelques un  avec les mappage obligatoire
 
 ## geom_boxplot : 
 
@@ -262,9 +264,9 @@ note
 ggplot(note) + geom_boxplot(aes(x=ECTS , y=Note ))
 ```
 
--   **x** =a variable qualitative  
+-   **x** =a variable quantitative
 
--   **y** = variable numérique
+-   **y** = variable quantitative
 
 ## geom_violin
 
@@ -274,7 +276,7 @@ ggplot(note) + geom_boxplot(aes(x=ECTS , y=Note ))
 ggplot(note) + geom_violin(aes(x=ECTS , y=Note))
 ```
 
--   **x** =a variable qualitative  
+-   **x** =a variable quantitative
 
 -   **y** = variable numérique\
 
@@ -285,7 +287,7 @@ ggplot(note) + geom_violin(aes(x=ECTS , y=Note))
 ggplot(note) + geom_bar(aes(x=Note  ))
 ```
 
--   **x**  ou **y** = la variable qualitative
+-   **x**  ou **y** = la variable quantitative
 
 -   **x** si on veut représenter verticalement 
 
@@ -322,7 +324,7 @@ ggplot(data=note)  + geom_text (aes(x=Note ,y=COUR, label=ECTS ))
 
 -    **y** la position des étiquettes en y 
 
--    **label**  : le texte a afficher\
+-    **label**  : le texte à afficher\
 
 ## geom_label
 
@@ -346,7 +348,7 @@ EUR_USD
 
 ```
 
-source des donées : [(source)](https://fr.investing.com/currencies/eur-usd-historical-data)
+source des données : [(source)](https://fr.investing.com/currencies/eur-usd-historical-data)
 
 ```{r}
 colnames(EUR_USD)
@@ -364,10 +366,9 @@ ggplot(EUR_USD)+geom_density(aes(x=Variation))
 ggplot(EUR_USD)+geom_line(aes(x=Variation,y=1:length(rownames(EUR_USD))))
 ```
 
--   \
-    **x** : cordonner en x
+-   **x** : coordonnées en x
 
--   **y** : cordonner en y
+-   **y** : coordonnées en y
 
 ## geom_point
 
@@ -375,9 +376,9 @@ ggplot(EUR_USD)+geom_line(aes(x=Variation,y=1:length(rownames(EUR_USD))))
 ggplot(note)+geom_point(aes(y=COUR,x=Note))
 ```
 
--   **x** : cordonner en x
+-   **x** : coordonnées en x
 
--   **y** : cordonner en y
+-   **y** : coordonnées en y
 
 ## geom_hex
 
@@ -385,9 +386,9 @@ ggplot(note)+geom_point(aes(y=COUR,x=Note))
 ggplot(note)+geom_hex(aes(y=ECTS,x=COUR),bins=0.1)
 ```
 
--   **x** : cordonner en x
+-   **x** : coordonnées en x
 
--   **y** : cordonner en y
+-   **y** : coordonnées en y
 
 \
 
@@ -397,19 +398,19 @@ ggplot(note)+geom_hex(aes(y=ECTS,x=COUR),bins=0.1)
 ggplot(note)+geom_bin2d(aes(y=COUR,x=Note))
 ```
 
--   **x** : cordonner en x
+-   **x** : coordonnées en x
 
--   **y** : cordonner en y
+-   **y** : cordocoordonnées nner en y
 
 **RQ** : geom_point, geom_hexa ,geom_bin2d fonctionne pareil la seul différence c'est la forme géométrique de la représentation : geom_point c'est un point ,geom_hexa  c'est un hexagone ,geom_bin2d un polygone à 4 côtés 
 
-Il  en existe d'autres mais voici les principales utiliser
+Il  en existe d'autres mais voici les principaux utiliser
 
 <https://bookdown.org/ael/rexplor/chap8.html#geom>
 
 ## Les mappage optionnelle
 
-Les **mappages** optionnelle sont les **mêmes** que des **Attributs de représentation** sauf que il agisse selon la variable que on lui donne.
+Les **mappages** optionnels sont les **mêmes** que des **Attributs de représentation** sauf qu' il agit selon la variable qu' on lui donne.
 
 exemple :
 
@@ -429,7 +430,7 @@ ggplot(note)+geom_point(aes(y=COUR,x=Note ,color=ECTS))
 ggplot(note)+geom_point(aes(y=COUR,x=Note ,color=ECTS ,size=ECTS)) 
 ```
 
-je vais pas tout vous détailler car tout **les** **mappage optionnelle sont basé sur les Attribut de représentation** qui va vous être expliquer après.
+je vais pas tout vous détailler car tous **les** **mappage optionnelle sont basé sur les Attributs de représentation** qui vont vous être expliquer après.
 
 ## Attribut de représentation
 
@@ -536,7 +537,7 @@ ggplot(mpg, aes(displ, hwy)) + geom_point() +
 
 ## Scales
 
-Les scale ou échelle permet de déterminer la façon dont un graphique affiche les données avec les attribues graphique et les mappages .
+Les scale ou **échelle** permet de **déterminer** la façon dont **un graphique affiche les données** avec les attributs graphiques et les mappages .
 
 ```{r}
 ggplot(data=donnerRp)  + geom_label (aes(x=Heures.moyennes.chaque.semaine , y=Pays ,label=Heures.moyennes.chaque.semaine))
@@ -599,7 +600,7 @@ Voici quelques fonction : 
 
 ## **scale_color**
 
-Il existe un autre type de **scal** qui permet de **modifier la couleur** ses fonctions sont du genre scale_color ...   Kimmodifier **les palettes de couleur**  lorsque on on utilise le attribut graphique  **color** .
+Il existe un autre type de **scal** qui permet de **modifier la couleur** ,ses fonctions sont du genre scale_color ...   Kimmodifier **les palettes de couleur**  lorsque on on utilise le attribut graphique  **color** .
 
 ```{r}
 ggplot(note)+geom_point(aes(y=COUR,x=Note )) 
@@ -611,13 +612,13 @@ ggplot(note)+geom_point(aes(y=COUR,x=Note ,color=ECTS)) + scale_color_gradient("
 
 \
 
- Voici une liste de fonctions **scale_color** : \
+ Voici une liste de fonctions **scale_color** : 
 
--   **scale_color_gradient** qui prend en argument deux paramètre low et high ou low et higt sont une couleur en string ,low valleur la plus faible et high valeurs en plus fort
+-   **scale_color_gradient** qui prend en argument deux paramètre low et high ou low et higt sont une couleur en string ,low valeur la plus faible et high valeurs en plus fort
 
--   **scale_color_viridis_c** : ajoute un titre a la legende couleur 
+-   **scale_color_viridis_c** : ajoute un titre a la légende couleur 
 
--    **scale_fill** :  modifie les palettes de couleur  loque on on utilise le attribut graphique fill
+-    **scale_fill** :  modifie les palettes de couleur  lorsque on on utilise le attribut graphique fill
 
 ## Theme
 
@@ -757,13 +758,13 @@ ggplot(EUR_USD )+
 
 # Aller Plus loin
 
-### Documentation de GGPLOT 2 
+### Documentation de GGPLOT 2
 
 ![](Aide/1.png)
 
 source :<https://ggplot2.tidyverse.org/>
 
-### Autre Guide 
+### Autre Guide
 
 ![](Aide/2.png)
 
@@ -785,37 +786,37 @@ source :[Visualisation de données avec R.](https://rkabacoff.github.io/datavis/
 
 source :[R pour la science des données : Visualisation de données.](http://r4ds.had.co.nz/data-visualisation.html)
 
-#### Aide mémoire 
+#### Aide mémoire
 
 ![](Aide/3.png)
 
 source : <https://thinkr.fr/pdf/ggplot2-french-cheatsheet.pdf>
 
-#### Données pour teste 
+#### Données pour teste
 
 ![](Aide/4.png)
 
 source : <http://archive.ics.uci.edu/ml/datasets.php>
 
-### R et Rstudio 
+### R et Rstudio
 
 ![](Aide/5.png)
 
 source : <https://openclassrooms.com/fr/courses/4525256-initiez-vous-au-langage-r-pour-analyser-vos-donnees/6250851-prenez-en-main-r-et-r-studio>
 
-### forum 
+### forum
 
 ![](Aide/6.png)
 
 source :<https://stackoverflow.com/questions/tagged/ggplot2>
 
-### chaine youtube fr 
+### chaine youtube fr
 
 ![](Aide/7.png)
 
 source :<https://www.youtube.com/playlist?list=PL4qokC4YyuUcgnOHMKvSWMuWBb83_Y2D0>
 
-### chaine youtube en 
+### chaine youtube en
 
 ![](Aide/8.png)
 
