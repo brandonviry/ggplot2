@@ -434,7 +434,7 @@ Où le 0 c'est le minimum et le 10 le maximum 
 
 \
 
-Les prochaines fonctions sont scale qui modifie sur les X et Y 
+Les prochaines fonctions sont les scale qui modifie sur les X et Y 
 
 ```{r}
 ggplot(note)+geom_point(aes(y=COUR,x=Note )) 
@@ -447,8 +447,6 @@ ggplot(note)+geom_point(aes(y=COUR,x=Note ))  +  scale_x_continuous(limits = c(0
 ```
 
 Les fonctions du genre scale_x.... ou scale_y...  Modifié le l'axe x et y du graphique   cette fonction prend en argument un argument limite qui est un vecteur de taille 2 avec le min et le max . 
-
-\
 
 Voici quelques fonction : 
 
@@ -468,7 +466,7 @@ Voici quelques fonction : 
 
 ## **scale_color**
 
-Mais il existe un autre type de scal qui permet de modifier la couleur ses fonctions sont du genre scale_color ...   Kimmodifier les palettes de couleur  loque on on utilise le attribut graphque  color .
+Il existe un autre type de scal qui permet de modifier la couleur ses fonctions sont du genre scale_color ...   Kimmodifier les palettes de couleur  loque on on utilise le attribut graphque  color .
 
 ```{r}
 ggplot(note)+geom_point(aes(y=COUR,x=Note )) 
