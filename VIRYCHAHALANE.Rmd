@@ -401,8 +401,6 @@ je vais pas tout vous detailler car tout les mappage optionnelle sont bassé sur
 
 ## Scales
 
-Permet de modifier la façon de relier des attribut graphique et les mappage  pour la représentation .On peut  le mettre à une représentation graphique en additionnent  une des fonction de scale a la géométrie :
-
 Les scale ou échelle permet de déterminer la façon d' un graphique à affiche les données avec les attribues graphique et les mappages .
 
 ```{r}
