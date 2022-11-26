@@ -20,8 +20,8 @@ knitr::opts_chunk$set(echo = TRUE)
 -   Syntax de base
 
     -   Recuperation de données (2)
-    -   Les Géometries (2)
-    -   Les Mapages (2)
+    -   Les Géometries et mappage obligatoire (2)
+    -   Les mappage optionnelle (2)
     -   Attribut de represnetation (1)
     -   Multigraphe (1)
     -   Faceting (1)
@@ -47,7 +47,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # **Prérequis**
 
-Pour pouvoir utiliser ce guide **il faut maîtriser le langage de programmation R** il faut avoir installé sur sa machine **r studio** installer la librairie  **ggplot2** et savoir **le type de représentation** qu'on veut faire sur vous donner .Si vous avez jamais installer une librairie , utiliser R et Rstudio je vous met en annexe un [tutoirel](https://openclassrooms.com/fr/courses/4525256-initiez-vous-au-langage-r-pour-analyser-vos-donnees/6250851-prenez-en-main-r-et-r-studio) expliquant comment utiliser R et Rstudio et je vous expliquer comment installer la librairie ggplot2.
+Pour pouvoir utiliser ce guide **il faut maîtriser le langage de programmation R** il faut avoir installé sur sa machine **r studio** installer la librairie  **ggplot2** et savoir **le type de représentation** qu'on veut faire sur vos donner .Si vous avez jamais installer une librairie , utiliser R et Rstudio je vous met en lin un [tutoirel](https://openclassrooms.com/fr/courses/4525256-initiez-vous-au-langage-r-pour-analyser-vos-donnees/6250851-prenez-en-main-r-et-r-studio) expliquant comment utiliser R et Rstudio et je vous expliquer comment installer la librairie ggplot2.
 
 Alors voici comment il faut installer la librairie ggplot2 : 
 
@@ -155,7 +155,7 @@ library(ggplot2)
 
 pouvoir travailler sur c'est donner vous devais prendre c'est donner est le placer en argument de la fonction ggplot comme ceci  :
 
-<https://www.offremedia.com/le-temps-consacre-aux-jeux-video-est-estime-7-heures-par-semaine-dans-le-monde-et-en-france-en>
+Données exemple :
 
 ```{r}
 donnerRp = read.csv(file = "donnerRp.csv",header = TRUE)
@@ -191,27 +191,25 @@ ggplot(data=donnerRp)   +  geom_point ()
 
 Comme vous le voyer les géométries ne peut pas être représenter sans un argument .
 
-Les géométriques peuvent avoir en argument ce qu' on appelle un mappage  (je vous en parle ra dans le prochaint poitn en détaille )qui est défini dans la fonction aes() c'est fonction permette de sélectionner les éléments à utiliser pour la représentation selon les caractéristique d'un type de graphique  comme pour une graphique geom_point():
+Les géométriques peuvent avoir en argument ce qu' on appelle un mappage et des atrribue graphique (qui est le prochain point a traités ) . Un mappages permet de relier un élément graphique à une variable d'un tableau.Il existe presque autant de mappage que il y de atrribue graphique. Pour chaque géométrie il existe à un mappage différent . Ce mappage est défini dans la fonction aes() c'est fonction permette de sélectionner les éléments à utiliser pour la représentation selon les caractéristique d'un type de graphique et il y des mappage obligatoire pour faire une represntation et des optionnelle .
+
+Exemple pour une graphique geom_point() avec les ellements de mapage obligatoire :
 
 ```{r}
 ggplot(data=donnerRp)  + geom_point (aes(x=Heures.moyennes.chaque.semaine , y=Pays )) 
 ```
 
-aes() mappage
+-   aes() : Cette fonction permet de crée le mappage sur les données (Les mappages esthétiques)
 
-x c'est l'élément du graphique en x
+-   x est un élément du mappage , c'est l'élément du graphique en x
 
-y c'est l'élément du graphique en y 
+-   y est un élément du mappage ,c'est l'élément du graphique en y 
 
-data1 est la donner pris en compte en x
+-   data1 est la donner pris en compte en x
 
-et 
+-   data2 est la donner pris en compte en y 
 
-data2 est la donner pris en compte en y 
-
-Chaque géométrie  possède d'autres arguments qu'ont appelle attribut graphique e  (Que je vous parlerai Plus tard)
-
-il existe beaucoup de  géométrique  je vais te présenter quelque' un
+il existe beaucoup de  géométrique  on va vous présenter quelque' un avec les mappage obligatoire
 
 ## geom_boxplot : 
 
@@ -220,25 +218,25 @@ note =read.csv(file = "note.csv",header = TRUE)
 note 
 ```
 
-mappage :
-
-x et y : sont deux variable quantitative
-
 ```{r}
 ggplot(note) + geom_boxplot(aes(x=ECTS , y=Note ))
 ```
 
-## geom_violin
+-   x =a variable qualitative  
 
-x et y : sont deux variable quantitative
+-   y = variable numérique
+
+## geom_violin
 
 RQ : geom_violin et geom_boxplot sont de facon de visualiser tres proches
 
 ```{r}
-ggplot(note) + geom_violin(aes(x=ECTS , y=Note ))
+ggplot(note) + geom_violin(aes(x=ECTS , y=Note))
 ```
 
-\
+-   x =a variable qualitative  
+
+-   y = variable numérique\
 
 ## geom_bar 
 
@@ -246,137 +244,6 @@ ggplot(note) + geom_violin(aes(x=ECTS , y=Note ))
 
 ggplot(note) + geom_bar(aes(x=Note  ))
 ```
-
-\
-
-## geom_col
-
-```{r}
-ggplot(note) + geom_col(aes(x=Note ,y=COUR ))
-```
-
-\
-
-## geom_text
-
-```{r}
-ggplot(data=note)  + geom_text (aes(x=Note ,y=COUR, label=ECTS )) 
-```
-
-\
-
-## geom_label
-
-```{r}
-ggplot(data=note)  + geom_label (aes(x=Note ,y=COUR, label=ECTS )) 
-```
-
-\
-
-## geom_density
-
-<https://ggplot2.tidyverse.org/reference/geom_density.html>\
-<https://plotly.com/ggplot2/geom_density/>
-
-<https://www.datanovia.com/en/lessons/ggplot-density-plot/>
-
-<https://fr.investing.com/currencies/eur-usd-historical-data>
-
-```{r}
-EUR_USD=read.csv(file = "EURUSD.csv",header = TRUE)
-EUR_USD 
-
-```
-
-```{r}
-colnames(EUR_USD)
-```
-
-```{r}
-ggplot(EUR_USD)+geom_density(aes(x=Variation))
-```
-
-## geom_line 
-
-```{r}
-ggplot(EUR_USD)+geom_line(aes(x=Variation,y=1:length(rownames(EUR_USD))))
-```
-
-\
-
-## geom_point
-
-```{r}
-ggplot(note)+geom_point(aes(y=COUR,x=Note))
-```
-
-\
-
-## geom_hex
-
-<https://ggplot2.tidyverse.org/reference/geom_hex.html>
-
-<https://plotly.com/ggplot2/geom_hex/>
-
-<https://search.r-project.org/CRAN/refmans/ggplot2/html/geom_hex.html>
-
-<https://tidyverse.github.io/ggplot2-docs/reference/geom_hex.html>
-
-<https://thinkr.fr/pdf/ggplot2-french-cheatsheet.pdf>
-
-```{r}
-ggplot(note)+geom_hex(aes(y=COUR,x=Note),bins=0.1)
-```
-
-<https://sebastienbuczinski.netlify.app/post/r-2-ggplot/>\
-
-## geom_bin2d
-
-Il  en existe d'autres mais voici les principales utiliser
-
-## Les Mapages
-
-Un mappages permet de relier un élément graphique à une variable d'un tableau Pour chaque géométrie il existe à ma page différent que je vais vous détailler suivant :
-
-## geom_boxplot
-
--   x =a variable qualitative  
-
--   y = variable numérique
-
--   argument :
-
-    -   with : largeur des box
-
-    -   notch : crée un boxplot avec notch si TRUE
-
-    -   color :couleur
-
-    -   size : taille
-
-    -   linetype : type de bordure
-
-        -   \
-            \
-            <https://www.datanovia.com/en/fr/lessons/ggplot-boxplot/>
-
-## geom_violin
-
-color : Couleur
-
-Size : taille
-
-linetype : type de la ligne
-
-fill: couleur de remplissage
-
-trim : TRUE coupe la queue du voilon et FALSE l'inverse
-
-<https://www.datanovia.com/en/fr/lessons/ggplot-violin-plot/>
-
-## geom_bar 
-
-<https://ggplot2.tidyverse.org/reference/geom_bar.html>
 
 -   x  ou y = la variable qualitative
 
@@ -391,77 +258,138 @@ geom_bar(.....)+coord_flip()
 
 ```
 
-RQ : coord_flip() que s'appliquer à toute les type de représentation de ggplot 2 
+RQ : coord_flip() que s'appliquer à toute les type de représentation de ggplot 2 \
 
 ## geom_col
 
--   x 
+```{r}
+ggplot(note) + geom_col(aes(x=Note ,y=COUR ))
+```
 
--   y 
+-   x =variable numérique
+
+-   y = le nom ou autre variable numérique
+
+    \
 
 ## geom_text
 
--   x  la position des étiquettes en x
-
--    y la position des étiquettes en y 
-
--    label  : le texte a afficher
-
-    ## geom_label
+```{r}
+ggplot(data=note)  + geom_text (aes(x=Note ,y=COUR, label=ECTS )) 
+```
 
 -   x  la position des étiquettes en x
 
 -    y la position des étiquettes en y 
 
--    label  : le texte à afficher 
+-    label  : le texte a afficher\
+
+## geom_label
+
+```{r}
+ggplot(data=note)  + geom_label (aes(x=Note ,y=COUR, label=ECTS )) 
+```
+
+-   x  la position des étiquettes en x
+
+-    y la position des étiquettes en y 
+
+-    label  : le texte a afficher\
 
 RQ: geom_text  et geom_label sont identique sauf dans l'affiche du texte 
 
-\
-
 ## geom_density
 
--   x    
+```{r}
+EUR_USD=read.csv(file = "EURUSD.csv",header = TRUE)
+EUR_USD 
 
--   y
+```
 
--   color 
+source des donées : [(source)](https://fr.investing.com/currencies/eur-usd-historical-data)
 
--   size 
+```{r}
+colnames(EUR_USD)
+```
 
-\
+```{r}
+ggplot(EUR_USD)+geom_density(aes(x=Variation))
+```
+
+-   x est la variable à observer
 
 ## geom_line 
 
--   x
+```{r}
+ggplot(EUR_USD)+geom_line(aes(x=Variation,y=1:length(rownames(EUR_USD))))
+```
 
--   y
+-   \
+    x : cordonner en x
+
+-   y : cordonner en y
 
 ## geom_point
 
--   x
+```{r}
+ggplot(note)+geom_point(aes(y=COUR,x=Note))
+```
 
--   y
+-   x : cordonner en x
+
+-   y : cordonner en y
+
+## geom_hex
+
+```{r}
+ggplot(note)+geom_hex(aes(y=ECTS,x=COUR),bins=0.1)
+```
+
+-   x : cordonner en x
+
+-   y : cordonner en y
 
 \
-
-## geom_hexa 
-
--   x
-
--   y
 
 ## geom_bin2d
 
--   x
+```{r}
+ggplot(note)+geom_bin2d(aes(y=COUR,x=Note))
+```
 
--   y\
+-   x : cordonner en x
+
+-   y : cordonner en y
 
 RQ : geom_point, geom_hexa ,geom_bin2d fonctionne pareil la seul différence c'est la forme géométrique de la représentation : geom_point c'est un point ,geom_hexa  c'est un hexagone ,geom_bin2d un polygone à 4 côtés 
 
-\
+Il  en existe d'autres mais voici les principales utiliser
 
-Il en existe peut-être d'autres mais ce sont les plus importants 
+<https://bookdown.org/ael/rexplor/chap8.html#geom>
+
+## Les mappage optionnelle 
+
+Les mappages optionnelle sont les même que des Attributs de représentation sauf que il agisse selon la variablr que on lui donne.
+
+exemple :
+
+```{r}
+ggplot(note)+geom_point(aes(y=COUR,x=Note ,size=ECTS)) 
+```
+
+size est un mappage optionnelle .
+
+```{r}
+ggplot(note)+geom_point(aes(y=COUR,x=Note ,color=ECTS)) 
+```
+
+color est un mappage optionnelle .
+
+```{r}
+ggplot(note)+geom_point(aes(y=COUR,x=Note ,color=ECTS ,size=ECTS)) 
+```
+
+je vais pas tout vous detailler car tout les mappage optionnelle sont bassé sur les Attribut de représentation qui va vous etre expliquer aprés
 
 ## Attribut de représentation
 
@@ -473,10 +401,14 @@ Il en existe peut-être d'autres mais ce sont les plus importants 
 
 Permet de modifier la façon de relier des attribut graphique et les mappage  pour la représentation .On peut  le mettre à une représentation graphique en additionnent  une des fonction de scale a la géométrie :
 
+Les scale ou échelle permet de déterminer la façon d' un graphique à affiche les données avec les attribues graphique et les mappages .
+
 ```{r}
-ggplot(data=donnerRp)  + geom_point (aes(x=data1 , y=data2 ),color = "darkgreen", size = 3, alpha = 0.3
-)
-+ scale_x_continuous(limits = c(0,100)) 
+ggplot(data=donnerRp)  + geom_label (aes(x=Heures.moyennes.chaque.semaine , y=Pays ,label=Heures.moyennes.chaque.semaine))
+```
+
+```{r}
+ggplot(data=donnerRp)  + geom_label (aes(x=Heures.moyennes.chaque.semaine , y=Pays ,label=Heures.moyennes.chaque.semaine))  +  scale_x_continuous(limits = c(0,10)) 
 
 ```
 
@@ -485,10 +417,14 @@ ggplot(data=donnerRp)  + geom_point (aes(x=data1 , y=data2 ),color = "darkgreen"
 Alors la première fonction scal que je vais vous présenter permet de modifier la taille  des éléments  a représenté c'est fonction se nomme scale_size ces fonction modifier minimales et maximales  de la taille de l'objet sur un mappage size cette fonction prend en argument un argument range du un vecteur de taille 2 avec le min et le max 
 
 ```{r}
-scale_size(range = c(0, 100))
+ggplot(note)+geom_point(aes(y=COUR,x=Note ,size=ECTS)) 
 ```
 
-Où le 0 c'est le minimum et le sang le maximum 
+```{r}
+ggplot(note)+geom_point(aes(y=COUR,x=Note ,size=ECTS)) + scale_size(range = c(0, 10))
+```
+
+Où le 0 c'est le minimum et le 10 le maximum 
 
 \
 
@@ -498,15 +434,21 @@ Où le 0 c'est le minimum et le sang le maximum 
 
 Les prochaines fonctions sont scale qui modifie sur les X et Y 
 
+```{r}
+ggplot(note)+geom_point(aes(y=COUR,x=Note )) 
+```
+
 \
+
+```{r}
+ggplot(note)+geom_point(aes(y=COUR,x=Note ))  +  scale_x_continuous(limits = c(0,20)) 
+```
 
 Les fonctions du genre scale_x.... ou scale_y...  Modifié le l'axe x et y du graphique   cette fonction prend en argument un argument limite qui est un vecteur de taille 2 avec le min et le max . 
 
 \
 
 Voici quelques fonction : 
-
-\
 
 -   scale_x\_continuous 
 
@@ -525,6 +467,14 @@ Voici quelques fonction : 
 ## **scale_color**
 
 Mais il existe un autre type de scal qui permet de modifier la couleur ses fonctions sont du genre scale_color ...   Kimmodifier les palettes de couleur  loque on on utilise le attribut graphque  color .
+
+```{r}
+ggplot(note)+geom_point(aes(y=COUR,x=Note )) 
+```
+
+```{r}
+ggplot(note)+geom_point(aes(y=COUR,x=Note ,color=ECTS)) + scale_color_gradient("Taux d'échec", low = "red", high = "green")
+```
 
 \
 
@@ -549,6 +499,8 @@ Mais il existe un autre type de scal qui permet de modifier la couleur ses fonct
 ## Resource
 
 ## Aide
+
+<https://thinkr.fr/pdf/ggplot2-french-cheatsheet.pdf>
 
 # Conclusion
 
