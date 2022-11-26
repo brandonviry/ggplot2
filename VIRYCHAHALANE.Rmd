@@ -1,4 +1,6 @@
 ---
+
+---
 title: "Projet GGPLOT2"
 author: "38001470 VIRY Brandon &  40007818 Chahalane Bériche"
 date: '2022-11-21'
@@ -367,7 +369,7 @@ Il  en existe d'autres mais voici les principales utiliser
 
 <https://bookdown.org/ael/rexplor/chap8.html#geom>
 
-## Les mappage optionnelle 
+## Les mappage optionnelle
 
 Les mappages optionnelle sont les même que des Attributs de représentation sauf que il agisse selon la variablr que on lui donne.
 
@@ -389,7 +391,7 @@ color est un mappage optionnelle .
 ggplot(note)+geom_point(aes(y=COUR,x=Note ,color=ECTS ,size=ECTS)) 
 ```
 
-je vais pas tout vous detailler car tout les mappage optionnelle sont bassé sur les Attribut de représentation qui va vous etre expliquer aprés
+je vais pas tout vous detailler car tout les mappage optionnelle sont bassé sur les Attribut de représentation qui va vous etre expliquer aprés.
 
 ## Attribut de représentation
 
