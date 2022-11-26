@@ -554,8 +554,52 @@ ggplot(EUR_USD )+
 
 ## Aide
 
-<https://thinkr.fr/pdf/ggplot2-french-cheatsheet.pdf>
+### Documentation de GGPLOT 2 
+
+![](Aide/1.png)
+
+source :<https://ggplot2.tidyverse.org/>
+
+### Documentation basique 
+
+![](Aide/2.png)
+
+source :<https://juba.github.io/tidyverse/08-ggplot2.html>
+
+#### Aide memoire 
+
+![](Aide/3.png)
+
+source : <https://thinkr.fr/pdf/ggplot2-french-cheatsheet.pdf>
+
+#### Données pour teste 
+
+![](Aide/4.png)
+
+source : <http://archive.ics.uci.edu/ml/datasets.php>
+
+### R et Rstudio 
+
+![](Aide/5.png)
+
+source : <https://openclassrooms.com/fr/courses/4525256-initiez-vous-au-langage-r-pour-analyser-vos-donnees/6250851-prenez-en-main-r-et-r-studio>
+
+### forum 
+
+![](Aide/6.png)
+
+source :<https://stackoverflow.com/questions/tagged/ggplot2>
+
+### chaine youtube fr 
+
+![](Aide/7.png)
+
+source :<https://www.youtube.com/playlist?list=PL4qokC4YyuUcgnOHMKvSWMuWBb83_Y2D0>
+
+### chaine youtube en 
+
+![](Aide/8.png)
+
+source : <https://www.youtube.com/playlist?list=PLtL57Fdbwb_C6RS0JtBojTNOMVlgpeJkS>
 
 # Conclusion
-
-chien
