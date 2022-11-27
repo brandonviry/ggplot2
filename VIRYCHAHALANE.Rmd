@@ -685,7 +685,7 @@ Il y'a aussi un package complementaire dédié au théme appelé ggthemes
 
 ```{r}
 #Pour installerr ce package uttiliser 
-install.packages("ggthemes")
+#install.packages("ggthemes")
 
 #Pour charger le pachage
 library("ggthemes")
