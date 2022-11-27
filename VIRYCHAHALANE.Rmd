@@ -71,7 +71,7 @@ help("ggplot2")
 ```
 
 ```{r}
-install.packages("ggplot2")
+#install.packages("ggplot2")
 library("ggplot2")
 
 ```
@@ -87,7 +87,7 @@ str(mpg)
 
 # **Prérequis**
 
-Pour pouvoir utiliser ce guide **il faut maîtriser le langage de programmation R** il faut avoir installé sur sa machine **r studio** installer la librairie  **ggplot2** et savoir **le type de représentation** qu'on veut faire sur vos données .Si vous avez jamais installer une librairie , utiliser R et Rstudio je vous met en lien un[ tutoriel](https://openclassrooms.com/fr/courses/4525256-initiez-vous-au-langage-r-pour-analyser-vos-donnees/6250851-prenez-en-main-r-et-r-studio) expliquant comment utiliser R et Rstudio et je vous expliquer comment installer la librairie ggplot2.
+Pour pouvoir utiliser ce guide **il faut maîtriser le langage de programmation R** il faut avoir installé sur sa machine **r studio** installer la librairie  **ggplot2** et savoir **le type de représentation** qu'on veut faire sur vos données .Si vous avez jamais installer une librairie , utiliser R et Rstudio je vous met en lien un[tutoriel](https://openclassrooms.com/fr/courses/4525256-initiez-vous-au-langage-r-pour-analyser-vos-donnees/6250851-prenez-en-main-r-et-r-studio) expliquant comment utiliser R et Rstudio et je vous expliquer comment installer la librairie ggplot2.
 
 Alors, voici comment il faut installer la librairie ggplot2 :
 
@@ -226,7 +226,7 @@ Comme vous le voyez il y a juste l'emplacement ou le graphique va s'afficher qui
 Pour **sélectionner** la représentation que on veut il suffit **d' ajouter un type de graphique**   qui est sous forme de fonction:
 
 ```{r}
-ggplot(data=donnerRp)   +  geom_point () 
+#ggplot(data=donnerRp)   +  geom_point () 
 #initialisation donner addition  geom 
 
 ```
@@ -700,7 +700,34 @@ help("ggthemes")
 
 ## Exemple 1
 
+Je vais illustrer un exemple simple en suivant le guide effectué plus haut , mon exemple sur la visualisation des donnée des Notes moyenne de la classe par matière :
+
+Tout d'abord je prépare mes données Notes et matière en les stockant ensemble grâce au datagramme.
+
+```{r}
+Notes <- c(10.5,20,15,8,13.5)#Vecteur de Notes annee actuelle
+NotesPrec <- c(9,16,11,14,12)#Vecteur de Notes annee precedent
+Matiere <- c("Java","Reseau","Math","Python","Arduino")#Les differrent matier
+
+donnee <- data.frame(Notes,Matiere,NotesPrec)#Variable qui stockent les Notes par matiere
+
+```
+
+Maintenant que j'ai preparé les données je vais utiliser ggplot pour  visualiser les données, J'utilise le Geom Point qui est assez simple à mettre en œuvre et pour que vous puissiez comprendre plus facilement. Mais vous pouvez utiliser le geom de votre choix ,celui que vous maitrisez le mieux par exemple. Mais n'ayez crainte peut importe le geom et les donne choisit vous saurez les maîtriser grâce à notre guide.
+
+```{r}
+#On uttilise la fonction ggplot pour visualiser les donnes
+ggplot(donnee,aes(x=Matiere,y=Notes)) + geom_point(alpha=2,shape=18,size=3,color="blue",fill=3)
+
+```
+
+Après avoir affiché le graphique on va ajouter un autre graphe de ces mêmes notes , mais qui viennent de l'année précédente ,comme ça on pourra comparer ces moyennes et par exemple voir la différence de niveaux  entre les promotions de l'année précédente et ceux de l'année actuelle pour chaque matière. Grâce à cela, les professeurs peuvent faire une réunion pour travailler sur différentes stratégie pour améliorer leur cours ou autres.
+
 ## Exemple 2
+
+Bon voici un exemple d' utilisation de ggplot2 d'un cas pratique .Dans cet exemple on veut visualiser les pourcentage des variations entre l'EURO et le dollar .
+
+Premièrement récupère les données j'ai choisi de le prendre d'un fichier .csv
 
 ```{r}
 EUR_USD=read.csv(file = "EURUSD.csv",header = TRUE)
@@ -713,6 +740,8 @@ EUR_USD
 
 source des données : [(source)](https://fr.investing.com/currencies/eur-usd-historical-data)
 
+Maintenant que j'ai mes données comme je veux visualiser avec des couleur et je ne sais pas tout les couleur possible je les importes
+
 ```{r}
 color=read.csv(file = "color.csv",header = TRUE)
 name = color$nom
@@ -722,9 +751,13 @@ color
 
 ```
 
+maintenant que j'ai mes couleurs et mes données je peut commencer la visualisation.Pour commencer j'importe la librairie GGPLOT 2
+
 ```{r}
 library(ggplot2)
 ```
+
+maintenant je commence a créé la visualisation sur mes données :
 
 ```{r}
 ggplot(EUR_USD )+
@@ -755,6 +788,10 @@ ggplot(EUR_USD )+
 
 
 ```
+
+vous trouverez dans cette exemple :
+
+Plusieurs points sont traités dans ce guide comme ajout multiple de graphe ,des scales , modification de thème ,des mappage obligatoire et optionnel ,plusieurs géométrie , des attributs de représentation .
 
 # Aller Plus loin
 
