@@ -226,7 +226,7 @@ Comme vous le voyez il y a juste l'emplacement ou le graphique va s'afficher qui
 Pour **sélectionner** la représentation que on veut il suffit **d' ajouter un type de graphique**   qui est sous forme de fonction:
 
 ```{r}
-#ggplot(data=donnerRp)   +  geom_point () 
+ggplot(data=donnerRp)   +  geom_point () 
 #initialisation donner addition  geom 
 
 ```
@@ -685,7 +685,7 @@ Il y'a aussi un package complementaire dédié au théme appelé ggthemes
 
 ```{r}
 #Pour installerr ce package uttiliser 
-#install.packages("ggthemes")
+install.packages("ggthemes")
 
 #Pour charger le pachage
 library("ggthemes")
