@@ -44,19 +44,19 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **(1) Bériche** **(2) Brandon**
 
-# Introduction
+# Introduction (Beriche)
 
 Bienvenue dans ce guide d'utilisation de **GGplot2**, Qu'est-ce que ggplot2 (souvent abrégé sous le nom de ggplot) ?
 
-GGplot2 est une **extension** du tidyverse (collection de packages R open source) sortie en 2007 qui permet de générer des **graphiques** avec une syntaxe cohérente et puissante, c'est un **package** très complet et très célèbre, parmi les utilisateurs de **R**.
+GGplot2 est une **extension** du tidyverse (collection de packages R open source) sortie en 2007 qui permet de générer des **graphiques** avec une syntaxe cohérente et puissante, c'est un Package très complet et très célèbre, parmi les utilisateurs de **R**.
 
 GGplot repose sur les principes de la **"grammaire des graphiques"**. L'idée principale est de concevoir un graphique comme une succession de **couches** (layers, en anglais) qui se superposent.
 
 Une des particularités de ggplot2 est qu'elle part du principe que les données relatives à un graphique sont stockées dans un **tableau de données** (data frame, tibble ou autre).
 
-Dans ce guide nous allons vous accompagner et vous introduire à l'utilisation de ce package ,malgrés l'aide fournis il faudra préalablement des **prérequis** afin de facilement comprendre et suivre ce tuto de façon la plus optimal. Ensuite vous verrez les différentes **syntaxe** , nous vous donnerons 2 exemple de cas d'utilisation et pour **conclure** on vous donnera les **ressources** nécessaire pour aller plus loin dans votre **apprentissage**.
+Dans ce guide nous allons vous accompagner et vous introduire à l'utilisation de ce package ,malgré l'aide fournis il faudra préalablement des **prérequis** afin de facilement comprendre et suivre ce tuto de façon la plus optimal. Ensuite vous verrez les différentes **syntaxe** , nous vous donnerons 2 exemple de cas d'utilisation et pour **conclure** on vous donnera les **ressources** nécessaire pour aller plus loin dans votre **apprentissage**.
 
-Malgrés l'effort et le travail fournit pour vous donnez un guide de qualité on arrivera pas à concurrencer votre meilleur allié qui sera la fonction **" help()"** qui vous sera quasiment indispensable dans votre apprentissage !!!
+Malgré l'effort et le travail fournit pour vous donnez un guide de qualité on arrivera pas à concurrencer votre meilleur allié qui sera la fonction **" help()"** qui vous sera quasiment indispensable dans votre apprentissage !!!
 
 [**Deux differrente façon d'uttiliser la fonction help()**]{.underline}
 
@@ -85,9 +85,9 @@ head(mpg)
 str(mpg)
 ```
 
-# **Prérequis**
+# **Prérequis (Brandon)**
 
-Pour pouvoir utiliser ce guide **il faut maîtriser le langage de programmation R** il faut avoir installé sur sa machine **r studio** installer la librairie  **ggplot2** et savoir **le type de représentation** qu'on veut faire sur vos données .Si vous avez jamais installer une librairie , utiliser R et Rstudio je vous met en lien un[tutoriel](https://openclassrooms.com/fr/courses/4525256-initiez-vous-au-langage-r-pour-analyser-vos-donnees/6250851-prenez-en-main-r-et-r-studio) expliquant comment utiliser R et Rstudio et je vous expliquer comment installer la librairie ggplot2.
+Pour pouvoir utiliser ce guide **il faut maîtriser le langage de programmation R** il faut au préalablement avoir installé sur sa machine **r studio** , installer la librairie  **ggplot2** et savoir **le type de représentation** qu'on veut faire sur vos données .Si vous avez jamais installer une librairie , utiliser R et Rstudio je vous met en lien un [tutoriel](https://openclassrooms.com/fr/courses/4525256-initiez-vous-au-langage-r-pour-analyser-vos-donnees/6250851-prenez-en-main-r-et-r-studio) expliquant comment utiliser R et Rstudio et je vais vous expliquer comment installer la librairie ggplot2 dans ce guide .
 
 Alors, voici comment il faut installer la librairie ggplot2 :
 
@@ -125,9 +125,9 @@ Alors, voici comment il faut installer la librairie ggplot2 :
 
 # Syntaxe de base
 
-## Récupération de données
+## Récupération de données (Brandon)
 
-Pour récupérer les données la plupart du temps vu le nombre de données , les données sont enregistrées   **dans des fichiers**  et le plus souvent ce fichier est dans le format csv  donc je vais vous montrer comment récupérer les données  dans  plusieurs types de fichier . Ces données sont d'un type spécial a R **c'est un** **dataframe** où les **données** de chaque colonnes sont **typées**. mais pour simplifier je vais dire tableau et ou les noms des colonnes sont appelé variable . Voici un exemple :
+Au vue de la quantité exponentielle des données , celle-ci peuvent entre être enregistrées  **dans des fichiers**  et le plus souvent ce fichier est dans le format csv  donc je vais vous montrer comment récupérer ces données  dans  plusieurs types de fichier . Ces données sont representer dans le langage R **sous forme de** **Dataframe** .Un dataframe est un tableau de **données** ou chaque colonnes sont **typées** et ou les noms des colonnes sont appelé variable . Voici un exemple :
 
 ```{r}
 
@@ -156,19 +156,19 @@ data <- read.table("data.txt", header = TRUE)
 data 
 ```
 
-**data :** est la variable ou les données vont être sauvegarder (le tableau)
+**data :** La variable où les données vont être sauvegarder (le tableau).
 
-**read.table() :**est la fonction qui prend en argument :
+**read.table() :** La fonction qui prend en argument :
 
-1.  **le nom du fichier** pour l'exemple c'est data.txt sous forme de chaîne de caractère c'est adire entre guillemet "data.txt"
+1.  **le nom du fichier** pour l'exemple c'est data.txt sous forme de chaîne de caractère c'est à dire entre guillemet "data.txt".
 
-2.  Un argument **header** qui est égale soit à **TRUE ou FALSE**
+2.  Un argument **header** qui est égale soit à **TRUE ou FALSE.**
 
     1.  **\
-        **Si vous mettez header est égale à **TRUE** signifie le fichier **contient les noms des colonne et des ligne de notre du tableau**
+        **Si vous mettez header est égale à **TRUE** signifie le fichier **contient les noms des colonne et des ligne de notre du tableau.**
 
     2.  **\
-        **Si vous mettez header est égale à **FALSE** signifie **l'inverse**
+        **Si vous mettez header est égale à **FALSE** signifie **l'inverse.**
 
 **2- Un fichier CSV**
 
@@ -177,9 +177,9 @@ data
  base
 ```
 
-**read.csv() :** cette fonction est réserver au fichier en **format .csv** et prend en argument:
+**read.csv() :** Cette fonction est réservé au fichier en **format .csv** et prend en argument :
 
-1.  **le nom du fichier** pour l'exemple c'est tic-tac-toe.csv sous forme de chaîne de caractère c'est a dire entre guillemet "tic-tac-toe.csv"
+1.  **Le nom du fichier** pour l'exemple c'est tic-tac-toe.csv sous forme de chaîne de caractère c'est à dire entre guillemet "tic-tac-toe.csv".
 
 2.  Un argument **header** qui est égale soit à **TRUE ou FALSE :**
 
@@ -189,13 +189,13 @@ data
 
 Il existe plein d'autres façons aussi de récupérer des données comme l'importation  de **fichier excel ,sas ,spss  et plein d'autres** formats ou encore en faisant **une connexion à des bases de données ou package** .
 
-Maintenant que les données sont récupérées pour pouvoir faire la représentation vous devez d'abord **importer la librairie** que vous avez installé ggplot2 comme suit:
+Après avoir récupérer les données vous devez d'abord **importer la librairie** ggplot2 pour faire la représentation :
 
 ```{r}
 library(ggplot2)
 ```
 
-pouvoir travailler sur c'est donner vous devez **prendre c'est donner est le placer en argument de la fonction ggplot** comme ceci  :
+Pouvoir travailler sur ces données vous devez **prendre ces données est les placer en argument dans la fonction ggplot** comme ceci  :
 
 Données exemple :
 
@@ -217,13 +217,13 @@ ou
 ggplot(donnerRp) 
 ```
 
-Comme vous le voyez il y a juste l'emplacement ou le graphique va s'afficher qui s'affiche c'est tout à fait normal car on ne lui a pas défini de représentation.C'est le prochain point de ce guide .
+Vous vous demandez surement pourquoi il y'à un carré gris sans graphique , c'est tout à fait normal car on n'a pas encore défini de Géométrie . C'est le prochain point de ce guide .
 
-## Les Géométries
+## Les Géométries (Brandon)
 
-**Les géométries c'est le type de représentation graphique** qu' on veut utiliser sur nos données  il existe beaucoup  de géométrie  chaque géométrie a c'est caractéristique . 
+**Les géométries ,appeleé aussi GEOM sont les types de représentation graphique** qu' on veut utiliser sur nos données  il existe beaucoup  de géométrie  chaque géométrie à ces caractéristique . 
 
-Pour **sélectionner** la représentation que on veut il suffit **d' ajouter un type de graphique**   qui est sous forme de fonction:
+Pour **sélectionner** la représentation qu'on veut il suffit **d' ajouter un type de graphique**   qui est sous forme de fonction :
 
 ```{r}
 ggplot(data=donnerRp)   +  geom_point () 
@@ -231,27 +231,31 @@ ggplot(data=donnerRp)   +  geom_point ()
 
 ```
 
-Comme vous le voyez **les géométries ne peuvent pas être représenter sans un argument** .
+Comme vous le voyez **les géométries ne peuvent être représenter sans un argument** .
 
-**Les géométriques** peuvent avoir en **argument** ce qu' on appelle un **mappage** et **des attribue graphique** (qui est le prochain point à traiter ) . Un **mappages** permet de **relier un élément graphique à une variable** d'un tableau.Il existe presque autant de mappage que il y de attribue graphique. Pour chaque géométrie il existe un mappage différent . Ce **mappage** est défini dans la fonction **aes**() c'est fonction permette de **sélectionner les éléments à utiliser pour la représentation selon les caractéristiques** d'un type de graphique .Certains des **mappages sont obligatoire** pour faire une représentation et des **autres optionnelle** .
+**Les géométriques** peuvent avoir en **argument** ce qu' on appelle un **mappage** et **des attribue graphique** (qui est le prochain point ) . Un **mappages** permet de **relier un élément graphique à une variable** d'un tableau.Il existe presque autant de mappage que il y de attribue graphique. Pour chaque géométrie il existe différent mappage . Ces **mappages** sont défini dans la fonction **aes**() cette fonction permet de **sélectionner les éléments à utiliser pour la représentation selon les caractéristiques** d'un type de graphique .Certains **mappages sont obligatoire** pour faire une représentation et d' **autres sont optionnelle** .
 
 Exemple pour une graphique geom_point() avec les éléments de mappage obligatoire :
 
 ```{r}
 ggplot(data=donnerRp)  + geom_point (aes(x=Heures.moyennes.chaque.semaine , y=Pays )) 
+
+
 ```
 
--   **aes() :** Cette fonction permet de créer le mappage sur les données (Les mappages esthétiques)
+Les arguments :
 
--   **x** est un élément du mappage , c'est l'élément du graphique en x
+-   **aes() :** Cette fonction permet de créer le mappage sur les données (Les mappages esthétiques) ,
 
--   **y** est un élément du mappage ,c'est l'élément du graphique en y 
+-   **x** : Un élément du mappage , c'est l'élément du graphique en x ,
 
--   **data1** est la donner pris en compte en x
+-   **y** : Un élément du mappage ,c'est l'élément du graphique en y ,
 
--   **data2** est la donner pris en compte en y 
+-   **data1** : La donnée pris en compte en x ,
 
-il existe beaucoup de  géométrique  on va vous présenter quelques un  avec les mappage obligatoire
+-   **data2** : La donnée pris en compte en y .
+
+Il existe beaucoup de  géométrique  mais on va vous présenter quelques un  avec les mappage obligatoire .
 
 ## geom_boxplot : 
 
@@ -264,21 +268,21 @@ note
 ggplot(note) + geom_boxplot(aes(x=ECTS , y=Note ))
 ```
 
--   **x** =a variable quantitative
+-   **x** : Variable quantitative.
 
--   **y** = variable quantitative
+-   **y** : Variable quantitative.
 
 ## geom_violin
 
-**RQ** : geom_violin et geom_boxplot sont des façon de visualiser très proches
+**RQ** : geom_violin et geom_boxplot sont des façon de visualiser très similaires .
 
 ```{r}
 ggplot(note) + geom_violin(aes(x=ECTS , y=Note))
 ```
 
--   **x** =a variable quantitative
+-   **x** : Variable quantitative.
 
--   **y** = variable numérique\
+-   **y** : Variable numérique.\
 
 ## geom_bar 
 
@@ -287,11 +291,11 @@ ggplot(note) + geom_violin(aes(x=ECTS , y=Note))
 ggplot(note) + geom_bar(aes(x=Note  ))
 ```
 
--   **x**  ou **y** = la variable quantitative
+-   **x**  ou **y** : La variable quantitative
 
--   **x** si on veut représenter verticalement 
+-   **x** : Si on veut représenter verticalement .
 
--   **y** si on veut représenter horizontalement
+-   **y :** Si on veut représenter horizontalement.
 
 Vous pouvez aussi passer du format vertical horizontal et vice-versa en ajoutant la fonction **coord_flip()**   à la géométrie :
 
@@ -300,7 +304,7 @@ ggplot(note) + geom_bar(aes(x=Note  ))+coord_flip()
 
 ```
 
-**RQ** : coord_flip() que s'appliquer à toute les type de représentation de ggplot 2 \
+**RQ** : coord_flip() s'applique à toute les type de représentation de ggplot 2.\
 
 ## geom_col
 
@@ -308,9 +312,9 @@ ggplot(note) + geom_bar(aes(x=Note  ))+coord_flip()
 ggplot(note) + geom_col(aes(x=Note ,y=COUR ))
 ```
 
--   **x** =variable numérique
+-   **x** : Variable numérique.
 
--   **y** = le nom ou autre variable numérique
+-   **y** : Le nom ou autre variable numérique.
 
     \
 
@@ -320,11 +324,11 @@ ggplot(note) + geom_col(aes(x=Note ,y=COUR ))
 ggplot(data=note)  + geom_text (aes(x=Note ,y=COUR, label=ECTS )) 
 ```
 
--   **x**  la position des étiquettes en x
+-   **x**  : La position des étiquettes en x.
 
--    **y** la position des étiquettes en y 
+-    **y** : La position des étiquettes en y .
 
--    **label**  : le texte à afficher\
+-    **label**  : Le texte à afficher.\
 
 ## geom_label
 
@@ -332,13 +336,13 @@ ggplot(data=note)  + geom_text (aes(x=Note ,y=COUR, label=ECTS ))
 ggplot(data=note)  + geom_label (aes(x=Note ,y=COUR, label=ECTS )) 
 ```
 
--   **x**  la position des étiquettes en x
+-   **x**  : La position des étiquettes en x .
 
--    **y** la position des étiquettes en y 
+-    **y** : La position des étiquettes en y .
 
--    **label**  : le texte a afficher\
+-    **label**  : Le texte à afficher.\
 
-**RQ**: geom_text  et geom_label sont identique sauf dans l'affiche du texte 
+**RQ**: geom_text  et geom_label sont identique sauf dans l'affichage du texte .
 
 ## geom_density
 
@@ -358,7 +362,7 @@ colnames(EUR_USD)
 ggplot(EUR_USD)+geom_density(aes(x=Variation))
 ```
 
--   **x** est la variable à observer
+-   **x** : La variable à observer.
 
 ## geom_line 
 
@@ -366,9 +370,9 @@ ggplot(EUR_USD)+geom_density(aes(x=Variation))
 ggplot(EUR_USD)+geom_line(aes(x=Variation,y=1:length(rownames(EUR_USD))))
 ```
 
--   **x** : coordonnées en x
+-   **x** : Coordonnées en x
 
--   **y** : coordonnées en y
+-   **y** : Coordonnées en y
 
 ## geom_point
 
@@ -376,9 +380,9 @@ ggplot(EUR_USD)+geom_line(aes(x=Variation,y=1:length(rownames(EUR_USD))))
 ggplot(note)+geom_point(aes(y=COUR,x=Note))
 ```
 
--   **x** : coordonnées en x
+-   **x** : Coordonnées en x
 
--   **y** : coordonnées en y
+-   **y** : Coordonnées en y
 
 ## geom_hex
 
@@ -386,9 +390,9 @@ ggplot(note)+geom_point(aes(y=COUR,x=Note))
 ggplot(note)+geom_hex(aes(y=ECTS,x=COUR),bins=0.1)
 ```
 
--   **x** : coordonnées en x
+-   **x** : Coordonnées en x
 
--   **y** : coordonnées en y
+-   **y** : Coordonnées en y
 
 \
 
@@ -398,67 +402,67 @@ ggplot(note)+geom_hex(aes(y=ECTS,x=COUR),bins=0.1)
 ggplot(note)+geom_bin2d(aes(y=COUR,x=Note))
 ```
 
--   **x** : coordonnées en x
+-   **x** : Coordonnées en x
 
--   **y** : cordocoordonnées nner en y
+-   **y** : Coordonnées en y
 
-**RQ** : geom_point, geom_hexa ,geom_bin2d fonctionne pareil la seul différence c'est la forme géométrique de la représentation : geom_point c'est un point ,geom_hexa  c'est un hexagone ,geom_bin2d un polygone à 4 côtés 
+**RQ** : geom_point, geom_hexa ,geom_bin2d leurs différence se situe dans la forme géométrique de la représentation : geom_point c'est un point ,geom_hexa  c'est un hexagone ,geom_bin2d un polygone à 4 côtés .
 
-Il  en existe d'autres mais voici les principaux utiliser
+Il  en existe d'autres mais voici les principaux utiliser.
 
 <https://bookdown.org/ael/rexplor/chap8.html#geom>
 
-## Les mappage optionnelle
+## Les mappage optionnelle (Brandon)
 
-Les **mappages** optionnels sont les **mêmes** que des **Attributs de représentation** sauf qu' il agit selon la variable qu' on lui donne.
+Les **mappages** optionnels sont les **mêmes** que les **Attributs de représentation** sauf qu' ils agissent selon la variable qu' on lui passe en paramètre .
 
-exemple :
+Exemple :
 
 ```{r}
 ggplot(note)+geom_point(aes(y=COUR,x=Note ,size=ECTS)) 
 ```
 
-**size** est un mappage optionnelle .
+**size** : Un mappage optionnelle .
 
 ```{r}
 ggplot(note)+geom_point(aes(y=COUR,x=Note ,color=ECTS)) 
 ```
 
-**color** est un mappage optionnelle .
+**color** : Un mappage optionnelle .
 
 ```{r}
 ggplot(note)+geom_point(aes(y=COUR,x=Note ,color=ECTS ,size=ECTS)) 
 ```
 
-je vais pas tout vous détailler car tous **les** **mappage optionnelle sont basé sur les Attributs de représentation** qui vont vous être expliquer après.
+Je vais pas tout vous détailler car tous **les** **mappage optionnelle sont basé sur les Attributs de représentation** qui vont vous être expliquer après.
 
-## Attribut de représentation
+## Attribut de représentation (Beriche)
 
-Les  éléments de **représentation graphique**  sont appelés des **GEOM** qui utilise different propriété passé en paramètre pour représenter des variables , dans un ggplot, le terme "**esthétique"** fait référence aux éléments de style utilisés pour visualiser des variables du **data.frame** de travail et non à l'affichage des **éléments externes** (non-data), tels que les titres, les étiquettes des axes, la **couleur** d'arrière-plan, etc., discuté ci-dessus. à savoir que les **arguments estetiques** qu'on peut uttiliser dans un ggplot dépendent des geoms(point,lines,bars,etc...)
+Les  éléments de **représentation graphique**  appelés **GEOM** , utilise differente propriété passé en paramètre pour représenter des variables , dans un ggplot, le terme "**esthétique"** fait référence aux éléments de style utilisés pour visualiser des variables du **data.frame** de travail et non à l'affichage des **éléments externes** (non-data), tels que les titres, les étiquettes des axes, la **couleur** d'arrière-plan, etc., il faut . savoir que les **arguments estetiques** qu'on uttilise dans un ggplot dépendent des geoms(point,lines,bars,etc...)
 
 [**Voici une liste non exhaustives des propriété qui sont partagé par plusieurs geoms :**]{.underline}
 
--   **Y :** numerique dont on veut étudier la répartition   ,
+-   **y :** Variable numérique dont on veut étudier la répartition .  ,
 
--   **X :** variable qualitative contenant les classe qu'on souhaite comparer
+-   **x :** Variable qualitative contenant les classe qu'on souhaite comparer.
 
--   **color :** La couleur
+-   **color :** La couleur.
 
--   **shape :** La forme
+-   **shape :** La forme.
 
--   **Linetype :** Type de ligne
+-   **Linetype :** Type de ligne.
 
--   **linewidth :** Largeur de la ligne
+-   **linewidth :** Largeur de la ligne.
 
--   **size :** La Taille des symbole
+-   **size :** La Taille des symboles.
 
--   **alpha :** La Transparence
+-   **alpha :** La Transparence.
 
--   **fill :** La couleur du remplissage
+-   **fill :** La couleur du remplissage.
 
--   **group :** Tracer des element separement pour chaque groupe
+-   **group :** Tracer des éléments séparément pour chaque groupe.
 
-IL existe plusieurs propriétés pour personaliser son graphe mais on ne pourra pas tous les citer ici , voici quelques ressources pour allez plus loin et en savoir plus sur les propriété d'une fonction geom , pour cela consultez son Help **help(geom_NOMGEOM)** ou **?geom_NOMGEOM**
+Il existe plusieurs propriétés pour personnaliser son graphe mais on ne pourra pas tous les citer ici , voici quelques ressources pour allez plus loin et en savoir plus sur celles-ci, pour cela consultez son help. Exemple : **help(geom_NOMGEOM)** ou **?geom_NOMGEOM**
 
 ```{r}
 #Par exemple ici en appliquant la fonction help() sur le geom_bar ou bien celui de votre choix vous pourrez avoir l'aide sur rstudio qui vous montre non seulement comment fonctionne ce geom mais aussi les differrent propriété de celui-ci et comment les uttiliser.
@@ -472,11 +476,11 @@ On peut aussi se renseigner sur la page web officiel de ggplot [**https://ggplot
 
 ### Voici un exemple qui illustre comment contrôler les esthétiques d'un ggplot.
 
-Pour notre exemple ici on va prendre comm donnée source en **abscisse** x le cylindrée du moteur en litre avec "displ"  et en **ordonnée** y le modèle de véhicule concernée "model"
+Pour notre exemple ici on va prendre comme donnée source en **abscisse** x le cylindrée du moteur en litre avec "displ"  et en **ordonnée** y le modèle de véhicule concernée "model"
 
 ```{r}
 #Voici 2 exemple avec differrent geom
-#dans cette exempleon crée un geom de type point et on lui passe quelque argument tel que la taille des symbole,sa couleur
+#dans cette exemple on crée un geom de type point et on lui passe quelque argument tel que la taille des symbole,sa couleur
 help(geom_point)#aide pour le type de geom point
 
 #On va afficher un graphe qui montre le cylindrée du moteur en litres par model
@@ -491,14 +495,14 @@ ggplot(mpg,aes(x=displ,y=model)) + geom_line(color="red",linetype=4,linewidth=2)
 
 ```
 
-## Multigraphe
+## Multigraphe (Bériche)
 
-L'un des avantages de ggplot c'est qu'on peut combiner plusieurs types graphes ensemble, pouvant etre de type et avoir des sources de données differrent tous simplement avec le symbole +
+L'un des avantages de ggplot c'est qu'on peut combiner plusieurs types de graphes ensemble, pouvant être de type et de sources de données différentes tous simplement avec le symbole +.
 
-Voici un exmeple
+Voici un exemple :
 
 ```{r}
-# je je vais combiner les deux graphe de ligne et de point  precedent
+#  je vais combiner les deux graphe de ligne et de point  precedent
 
 ggplot(mpg, aes(x = displ, y = model, color = drv, linetype = trans)) +
   geom_point(size = 1.5) +
@@ -506,18 +510,18 @@ ggplot(mpg, aes(x = displ, y = model, color = drv, linetype = trans)) +
 
 ```
 
-## Faceting
+## Faceting (Bériche)
 
 Le faceting sert à découper un graphique en une figure à plusieurs panneaux, chaque panneau (facette) correspond à un sous-ensemble de données. ggplot propose deux fonctions pour faire du faceting : facet_grid et facet_wrap.
 
-Comme vue avant on va prendre l'habitude d'uttiliser help quand on neconnait pas une fonction ou autre
+Comme vue précedemment on va prendre l'habitude d'utiliser help quand on ne connait pas une fonction ou comment elle fonctionne.
 
 ```{r}
 help(facet_grid)
 help(facet_wrap)
 ```
 
-Ces deux fonctions sont très similaires mais **facet_grid()** réalise une matrice de graphiques alors que **facet_wrap()** réalise une suite de graphiques. Les deux arguments principaux de ces fonctions sont : **rows** et **cols** pour **facet_grid()** et **facets** pour **facet_wrap()**. Le graphique suivant illustre ces deux fonctions et leurs arguments.
+Ces deux fonctions sont très similaires mais **facet_grid()** réalise une matrice de graphiques alors que **facet_wrap()** réalise une suite de graphiques. Les deux arguments principaux de ces fonctions sont : **rows** et **cols** pour **facet_grid()** et **facets** pour **facet_wrap()**. Les graphiques suivants illustres ces deux fonctions et leurs arguments.
 
 ```{r}
 # gauche
@@ -535,9 +539,9 @@ ggplot(mpg, aes(displ, hwy)) + geom_point() +
   facet_grid(cols = vars(trans), row = vars(drv), labeller = "label_both", scales = "free")
 ```
 
-## Scales
+## Scales (Brandon)
 
-Les scale ou **échelle** permet de **déterminer** la façon dont **un graphique affiche les données** avec les attributs graphiques et les mappages .
+Les scale ou **échelles** permettent de **déterminer** la façon dont **un graphique affiche les données** avec les attributs graphiques et les mappages .
 
 ```{r}
 ggplot(data=donnerRp)  + geom_label (aes(x=Heures.moyennes.chaque.semaine , y=Pays ,label=Heures.moyennes.chaque.semaine))
@@ -550,7 +554,7 @@ ggplot(data=donnerRp)  + geom_label (aes(x=Heures.moyennes.chaque.semaine , y=Pa
 
 ## **scale_size**
 
-La première **fonction** scal que je vais vous présentez permet de **modifier la taille  des éléments  a représenté** c'est fonction se nomme scale_size ces fonction **modifier minimales et maximales  de la taille** de l'objet sur un mappage size cette fonction prend en argument **un argument range du un vecteur de taille 2 avec le min et le max** 
+La première **fonction** scal que je vais vous présentez permet de **modifier la taille  des éléments  à représenté** cette fonction se nomme scale_size cette fonction **modifie minimales et maximales  de la taille** de l'objet sur un mappage size cette fonction prend en argument **un argument range d'un vecteur de taille 2 avec le min et le max** .
 
 ```{r}
 ggplot(note)+geom_point(aes(y=COUR,x=Note ,size=ECTS)) 
@@ -568,7 +572,7 @@ Où le 0 c'est le minimum et le 10 le maximum 
 
 \
 
-Les prochaines fonctions sont les scale qui modifie sur les X et Y 
+Les prochaines fonctions sont les scale qui modifient sur les X et Y 
 
 ```{r}
 ggplot(note)+geom_point(aes(y=COUR,x=Note )) 
@@ -580,7 +584,7 @@ ggplot(note)+geom_point(aes(y=COUR,x=Note ))
 ggplot(note)+geom_point(aes(y=COUR,x=Note ))  +  scale_x_continuous(limits = c(0,20)) 
 ```
 
-Les fonctions du genre s**cale_x.... ou scale_y...**  Modifié le **l'axe x et y du graphique**   cette fonction prend en argument **un argument limite** qui est un vecteur de t**aille 2 avec le min et le max .** 
+Les fonctions du genre s**cale_x.... ou scale_y...**  Modifie **l'axe x et y du graphique** , ces fonctions prennent en argument, **un argument limite** qui est un vecteur de t**aille 2 avec le min et le max .** 
 
 Voici quelques fonction : 
 
@@ -600,7 +604,7 @@ Voici quelques fonction : 
 
 ## **scale_color**
 
-Il existe un autre type de **scal** qui permet de **modifier la couleur** ,ses fonctions sont du genre scale_color ...   Kimmodifier **les palettes de couleur**  lorsque on on utilise le attribut graphique  **color** .
+Il existe une autre type de **scal** qui permet de **modifier la couleur** ,ces fonctions sont du genre scale_color ...   qui modifie **les palettes de couleur**  lorsqu'on utilise l'attribut graphique  **color** .
 
 ```{r}
 ggplot(note)+geom_point(aes(y=COUR,x=Note )) 
@@ -614,17 +618,17 @@ ggplot(note)+geom_point(aes(y=COUR,x=Note ,color=ECTS)) + scale_color_gradient("
 
  Voici une liste de fonctions **scale_color** : 
 
--   **scale_color_gradient** qui prend en argument deux paramètre low et high ou low et higt sont une couleur en string ,low valeur la plus faible et high valeurs en plus fort
+-   **scale_color_gradient** qui prend en argument deux paramètre low et high ou low et higt sont une couleur en chaîne de caractère ,low représente les valeurs les plus faibles et high représente les valeurs les plus fortes de la variable représenter .
 
--   **scale_color_viridis_c** : ajoute un titre a la légende couleur 
+-   **scale_color_viridis_c** : ajoute un titre à la légende couleur .
 
--    **scale_fill** :  modifie les palettes de couleur  lorsque on on utilise le attribut graphique fill
+-    **scale_fill** :  modifie les palettes de couleur  lorsqu'on utilise l'attribut graphique fill
 
-## Theme
+## Theme (Beriche)
 
-Nous voiçi arriver sur une partie assez amusante de ce guide les thèmes , Les thèmes permettent de contrôler et personaliser l'affichage de tous les éléments du graphique qui ne sont pas reliés aux données : titres, étiquette , lgrilles, fonds, legende et bien plus .
+Nous voici arriver sur une partie assez amusante de ce guide les thèmes . Les thèmes permettent de contrôler et personnaliser l'affichage de tous les éléments du graphique qui ne sont pas reliés aux données : titres, étiquette , grilles, fonds, légende et bien plus .
 
-Il existe un certain nombre de thèmes préexistants ici on va uttiliser deux theme sur notre exemple :
+Il existe un certain nombre de thèmes préexistants ici on va utiliser deux thème sur notre exemple :
 
 **theme_bw :** Met le fond en blanc avec les quadrillage en gris
 
@@ -637,7 +641,7 @@ help(theme_bw)
 help("theme_minimal")
 ```
 
-par exemple le thème **theme_bw** :
+Par exemple le thème **theme_bw** :
 
 ```{r}
 ggplot(data = mpg) +
@@ -645,7 +649,7 @@ ggplot(data = mpg) +
   theme_bw()
 ```
 
-Un autre exemple de theme **theme_minimal** :
+Un autre exemple de thème **theme_minimal** :
 
 ```{r}
 ggplot(data = mpg) +
@@ -653,12 +657,12 @@ ggplot(data = mpg) +
   theme_minimal()
 ```
 
-Les éléments personnalisables étant nombreux, un bon moyen de se familiariser avec tous les arguments est sans doute l'addin  RStudio **ggThemeAssist**. Pour l'utiliser il suffit d'installer le package du même nom. Pour ne pas trop se disperser, je vais vous donnez un lien menant vers un tuto qui vous apprend de façons simple à uttiliser ggTemeAssist <https://www.dataindeed.io/2018/03/13/dailyr-ggplot2-theme-assistant/>.
+Les éléments personnalisables étant nombreux, un bon moyen de se familiariser avec tous les arguments est sans doute le menu Addins de RStudio après avoir au préalablement installer **ggThemeAssist**. Pour ne pas trop se disperser, je vais vous donnez un lien menant vers un tuto qui vous apprendra de façons simple à utiliser ggTemeAssist <https://www.dataindeed.io/2018/03/13/dailyr-ggplot2-theme-assistant/>.
 
-Les thème permettent d'obtenir très facilement des rendu graphique beau mais aussi des graphe pas très beau à voir et moin comprehensible , dans l'exemple ci-dessous  je mélange exprès beaucoup  de thème, ce qui va donner un résultat pas très beau et peu compréhensible , c'est pour cela que je vous ai présenté plus haut deux thème simple pour vous habituez à choisir des options simple et compréhensible plutôt que des option qui peuvent rendre le graphe illisible et moche :
+Les thème permettent d'obtenir très facilement des rendu graphique beau mais si mal utiliser peuvent aussi donner des graphe pas très esthétiques et moins compréhensible , dans l'exemple ci-dessous  je fais exprès de mélange beaucoup de thème, ce qui va donner un résultat pas très beau et peu compréhensible , c'est pour cela que je vous ai présenté plus haut deux thème simple pour vous habituez à choisir des options simple et compréhensible plutôt que des options qui peuvent rendre le graphe illisible .
 
 ```{r}
-#exemple quand on melange beaucoup d'option sans les maitrisez
+#Exemple quand on melange beaucoup d'options sans les maitriser
 ggplot(mpg,aes(x=displ,y=model)) + geom_line(color="black",linetype=4,linewidth=2) +
  theme(panel.grid.major = element_line(colour = "green",
     size = 0.5, linetype = "dotdash"), axis.title = element_text(family = "serif",
@@ -675,13 +679,13 @@ ggplot(mpg,aes(x=displ,y=model)) + geom_line(color="black",linetype=4,linewidth=
 
 ```
 
-On a données 2 exemple de thème et un moyen de modifier les themes ici mais il existe des centaine de thème permettant de donner un beau rendu visuel à vos graphiques , vous pourrez trouver une panopli de thème :
+Iici on vous a donner 2 exemple de thème et un moyen de les modifier , mais il existe des centaines de thème permettant de donner un beau rendu visuel à vos graphiques , vous pourrez trouver une panoplie de thème à l'aide de :
 
 ```{r}
 help(theme)# ici vous verrais comment uttiliser la fonction theme et aussi vous verrez les differrent type de theme existant
 ```
 
-Il y'a aussi un package complementaire dédié au théme appelé ggthemes
+Il y' a aussi un package complémentaire dédié au thème appelé ggthemes.
 
 ```{r}
 #Pour installerr ce package uttiliser 
@@ -696,9 +700,9 @@ help("ggthemes")
 
 ```
 
-# Exemple :
+# Exemple
 
-## Exemple 1
+## Exemple d'application du guide (Beriche)
 
 Je vais illustrer un exemple simple en suivant le guide effectué plus haut , mon exemple sur la visualisation des donnée des Notes moyenne de la classe par matière :
 
@@ -713,21 +717,70 @@ donnee <- data.frame(Notes,Matiere,NotesPrec)#Variable qui stockent les Notes pa
 
 ```
 
-Maintenant que j'ai preparé les données je vais utiliser ggplot pour  visualiser les données, J'utilise le Geom Point qui est assez simple à mettre en œuvre et pour que vous puissiez comprendre plus facilement. Mais vous pouvez utiliser le geom de votre choix ,celui que vous maitrisez le mieux par exemple. Mais n'ayez crainte peut importe le geom et les donne choisit vous saurez les maîtriser grâce à notre guide.
+Maintenant que j'ai préparé les données je vais utiliser ggplot pour visualiser les données, J'utilise le Geom Point qui est assez simple à mettre en œuvre et pour que vous puissiez comprendre plus facilement. Mais vous pouvez utiliser le geom de votre choix ,celui que vous maîtrisez le mieux par exemple. Mais n'ayez crainte peut importe le geom et les donne choisit vous saurez les maîtriser grâce à notre guide.
 
 ```{r}
+library("ggplot2")
 #On uttilise la fonction ggplot pour visualiser les donnes
 ggplot(donnee,aes(x=Matiere,y=Notes)) + geom_point(alpha=2,shape=18,size=3,color="blue",fill=3)
 
 ```
 
-Après avoir affiché le graphique on va ajouter un autre graphe de ces mêmes notes , mais qui viennent de l'année précédente ,comme ça on pourra comparer ces moyennes et par exemple voir la différence de niveaux  entre les promotions de l'année précédente et ceux de l'année actuelle pour chaque matière. Grâce à cela, les professeurs peuvent faire une réunion pour travailler sur différentes stratégie pour améliorer leur cours ou autres.
+Après avoir affiché le graphique on va ajouter un autre graphe de ces mêmes notes , mais qui viennent de l'année précédente ,comme ça on pourra comparer ces moyennes et par exemple voir la différence de niveaux entre les promotions de l'année précédente et ceux de l'année actuelle pour chaque matière. Grâce à cela, les professeurs peuvent faire une réunion pour travailler sur différentes stratégie pour améliorer leur cours ou autres.
 
-## Exemple 2
+## Multigraphe
 
-Bon voici un exemple d' utilisation de ggplot2 d'un cas pratique .Dans cet exemple on veut visualiser les pourcentage des variations entre l'EURO et le dollar .
+```{r}
+ggplot(donnee,aes(x=Matiere,y=Notes)) + geom_point(alpha=2,shape=18,size=3,color="blue",fill=3) + geom_line(aes(y=NotesPrec),color="red",alpha=1,linetype=4,linewidth=2,group=2)
+```
 
-Premièrement récupère les données j'ai choisi de le prendre d'un fichier .csv
+J'ai choisi de représenter les moyenne des notes de l'année précédente en geom_line ,couleur rouge, Par exemple dans ce graphe on peut apercevoir que la plupart des Notes moyenne par matière était basse sauf pour Python, ou la moyenne de cette année à chuter par à port à la promo de l'année dernière.
+
+## Facetting
+
+Maintenant on va découper le graphe en plusieurs sous graphiques séparément pour pouvoir isoler et interpréter chaque Notes et matière différemment, grâce au facetting , ici j'ai choisi de les disposer par suite graphique grâce à la fonction facet_wrap.
+
+```{r}
+#help("facet_wrap")
+ggplot(donnee,aes(x=Matiere,y=Notes)) + geom_point(alpha=2,shape=18,size=3,color="blue",fill=3) +
+  facet_wrap(facets = vars(Matiere, Notes))
+
+```
+
+## Theme
+
+Je vais finir mon exemple en personnalisant mon graphe initial pour le rendre plus beau visuellement grâce au thème .
+
+```{r}
+help("theme")
+ggplot(donnee,aes(x=Matiere,y=Notes)) + geom_point(alpha=2,shape=18,size=3,color="blue",fill=3) + theme( 
+  
+  #Je vais changer les legendes en rouges,gras,police en model serif
+  axis.title = element_text(family = "serif",
+    size = 18, face = "bold", colour = "red"),
+  
+  #Je vais mettre le fond en vert
+  plot.background = element_rect(fill = "green"),
+  
+  #je change la taille et le format des différrente matieres et notes
+  axis.text = element_text(family = "serif",
+        size = 12, face = "bold"), axis.text.x = element_text(family = "mono"),
+  
+  #Je change la couleur du  fond du graphique
+   panel.background = element_rect(fill = "coral")
+  
+  )
+```
+
+Pour mon exemple , j'ai suivi les indications du guide ,qui dit qu'il ne faut pas mélanger trop d'attributs pour personnaliser le graphe afin d'éviter qu'il soit illisible et incompréhensible.
+
+Maintenant c'est à votre tour de jouer, Pour vous entrainez choisissez des données à visualiser en utilisant le guide comme je les fait précédemment . Et envoyez-nous votre projet . Merci pour votre participation.
+
+## Exemple d'utilisation de ggplot 2 (Brandon)
+
+Bon voici un exemple d' utilisation de ggplot2 d'un cas pratique .Dans cet exemple on veut visualiser les pourcentages des variations entre l'euro et le dollar .
+
+Premièrement je récupère les données. J'ai choisi de prendre les données depuis un fichier .csv
 
 ```{r}
 EUR_USD=read.csv(file = "EURUSD.csv",header = TRUE)
@@ -740,7 +793,7 @@ EUR_USD
 
 source des données : [(source)](https://fr.investing.com/currencies/eur-usd-historical-data)
 
-Maintenant que j'ai mes données comme je veux visualiser avec des couleur et je ne sais pas tout les couleur possible je les importes
+Après avoir récupérer les données , je veux les visualisées avec des couleurs , j'ai importer des couleurs possible pour la représentation de mon graphique .
 
 ```{r}
 color=read.csv(file = "color.csv",header = TRUE)
@@ -751,13 +804,13 @@ color
 
 ```
 
-maintenant que j'ai mes couleurs et mes données je peut commencer la visualisation.Pour commencer j'importe la librairie GGPLOT 2
+Maintenant que j'ai mes couleurs et mes données je peut commencer la visualisation.en important la librairie GGPLOT 2.
 
 ```{r}
 library(ggplot2)
 ```
 
-maintenant je commence a créé la visualisation sur mes données :
+Je commence à crée la visualisation sur mes données :
 
 ```{r}
 ggplot(EUR_USD )+
@@ -789,11 +842,11 @@ ggplot(EUR_USD )+
 
 ```
 
-vous trouverez dans cette exemple :
+Dans cette exemple :
 
-Plusieurs points sont traités dans ce guide comme ajout multiple de graphe ,des scales , modification de thème ,des mappage obligatoire et optionnel ,plusieurs géométrie , des attributs de représentation .
+Plusieurs points sont traités en référence au guide comme l'ajout de graphe multiple ,des scales , modification de thème ,des mappage obligatoire et optionnel ,plusieurs géométrie , des attributs de représentation .
 
-# Aller Plus loin
+# Aller Plus loin (Bériche et Brandon)
 
 ### Documentation de GGPLOT 2
 
@@ -865,16 +918,16 @@ Galerie graphique :
 
 source : [Galerie de graphiques.](https://www.r-graph-gallery.com/)
 
-# Conclusion
+# Conclusion (Bériche)
 
-Il temps de se dire au revoir après tant de chemins parcourus ensemble dans ce tutoriel  ,vous voilà maintenant bien équipé avec assez de base  pour vous lancer seul de manière plus approfondie dans  ce vaste monde de visualisation de données avec ggplot2 , mais ne vous inquiétez pas on va vous tenir la main une dernière fois en vous donnant quelques idées et Ressources pour approfondir votre apprentissage un dernier conseil n'hésitez pas à commenter votre code cela pourrait vous être beaucoup utile plus tard et surtout pour la compréhension . Merci d'avoir suivi notre guide et à très bientôt.
+Il est temps de se dire au revoir après tant de chemins parcourus ensemble dans ce tutoriel, vous voilà maintenant bien équipé avec assez de base  pour vous lancer seul de manière plus approfondie dans  ce vaste monde qu'est la visualisation des données avec ggplot2 , mais ne vous inquiétez pas on va vous tenir la main une dernière fois en vous donnant quelques idées et ressources(voir plus haut) pour approfondir votre apprentissage, un dernier conseil n'hésitez pas à commenter votre code cela pourrait vous être beaucoup utile plus tard et surtout pour la compréhension de votre code . Merci d'avoir suivi notre guide et à très bientôt.
 
 ### [Voici quelques sujet très intéressant,vous pourriez :]{.underline}
 
--   **Ecrire vos propre fonction**
+-   **Ecrives vos propres fonctions**
 
--   **Structurer vos donées**
+-   **Structurer vos données**
 
 -   **Vous initiez au structure conditionnel et boucles**
 
--   **programmer avec tidyverse Organiser un projet avec targets**
+-   **Programmer avec tidyverse Organiser un projet avec targets**
